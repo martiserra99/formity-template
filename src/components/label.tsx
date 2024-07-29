@@ -7,6 +7,8 @@ interface LabelProps {
 
 export default function Label({ children, className }: LabelProps) {
   return (
-    <p className={clsx("text-indigo-400 text-sm", className)}>{children}</p>
+    <p className={clsx("text-indigo-400 text-sm font-medium", className)}>
+      {children}
+    </p>
   );
 }
