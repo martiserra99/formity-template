@@ -5,6 +5,7 @@ import Heading from "@/components/heading";
 import Text from "@/components/text";
 import Button from "@/components/button";
 import TextField from "@/components/text-field";
+import Listbox from "@/components/listbox";
 
 export default function Home() {
   return (
@@ -15,6 +16,14 @@ export default function Home() {
         <Text>My App is a great app</Text>
         <Button>HOLA</Button>
         <TextField value="Hola" onChange={(value) => console.log(value)} />
+        <Listbox
+          options={[
+            { value: "football", label: "Football" },
+            { value: "basketball", label: "Basketball" },
+          ]}
+          value={"football"}
+          onChange={(value) => console.log(value)}
+        />
       </div>
     </div>
   );
