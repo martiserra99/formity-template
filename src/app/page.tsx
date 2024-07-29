@@ -6,6 +6,7 @@ import Text from "@/components/text";
 import Button from "@/components/button";
 import TextField from "@/components/text-field";
 import Listbox from "@/components/listbox";
+import RadioGroup from "@/components/radio-group";
 
 export default function Home() {
   return (
@@ -21,9 +22,18 @@ export default function Home() {
             { value: "football", label: "Football" },
             { value: "basketball", label: "Basketball" },
           ]}
-          value={null}
+          value={undefined}
           placeholder="Select a sport"
           onChange={(value) => console.log(value)}
+        />
+        <RadioGroup
+          options={[
+            { value: "yes", label: "Yes" },
+            { value: "no", label: "No" },
+          ]}
+          value={undefined}
+          onChange={(value) => console.log(value)}
+          direction="horizontal"
         />
       </div>
     </div>

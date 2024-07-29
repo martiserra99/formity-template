@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Listbox as HeadlessListbox,
   ListboxButton,
@@ -10,7 +9,7 @@ import clsx from "clsx";
 
 interface ListboxProps {
   options: { value: string; label: string }[];
-  value: string | null;
+  value: string | undefined;
   onChange: (value: string) => void;
   placeholder?: string;
   className?: string;
@@ -28,8 +27,8 @@ export default function Listbox({
     <HeadlessListbox value={value} onChange={onChange}>
       <ListboxButton
         className={clsx(
-          "bg-white/5 border-white/10 data-[focus]:bg-red-400 relative block w-full rounded-xl border px-6 py-4 text-left text-base text-white",
-          "data-[active]:ring-white/10 active:outline-none data-[active]:ring-2 data-[active]:ring-offset-2 data-[active]:ring-offset-black",
+          "bg-white/5 border-white/10 relative block w-full rounded-xl border px-6 py-4 text-left text-base text-white",
+          "data-[active]:ring-white/10 focus:outline-none data-[active]:ring-2 data-[active]:ring-offset-2 data-[active]:ring-offset-black",
           className,
         )}
       >
@@ -42,13 +41,15 @@ export default function Listbox({
       <ListboxOptions
         anchor="bottom"
         transition
-        className="border-white/10 bg-white/5 w-[var(--button-width)] rounded-xl border p-1 [--anchor-gap:8px] focus:outline-none"
+        className="relative w-[var(--button-width)] rounded-xl p-1 [--anchor-gap:8px] focus:outline-none"
       >
+        <div className="absolute inset-0 rounded-xl bg-black" />
+        <div className="bg-white/5 border-white/10 absolute inset-0 rounded-xl border" />
         {options.map((option) => (
           <ListboxOption
             key={option.value}
             value={option.value}
-            className="data-[focus]:bg-white/10 group flex cursor-default select-none items-center gap-2 rounded-lg px-3 py-2"
+            className="data-[selected]:bg-white/10 group relative z-10 flex cursor-default select-none items-center gap-2 rounded-lg px-3 py-2"
           >
             <CheckIcon className="invisible size-4 fill-white group-data-[selected]:visible" />
             <div className="text-sm text-white">{option.label}</div>
