@@ -2,6 +2,7 @@ import clsx from "clsx";
 
 interface TextFieldProps {
   value: string;
+  placeholder?: string;
   onChange: (value: string) => void;
   className?: string;
 }
@@ -9,6 +10,7 @@ interface TextFieldProps {
 export default function TextField({
   value,
   onChange,
+  placeholder,
   className,
 }: TextFieldProps) {
   return (
@@ -16,6 +18,7 @@ export default function TextField({
       type="text"
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
       className={clsx(
         "bg-white/5 border-white/10 placeholder:text-neutral-500 focus:ring-white/10 block w-full rounded-xl border px-6 py-4 text-white focus:outline-none focus:ring focus:ring-offset-2 focus:ring-offset-black",
         className,

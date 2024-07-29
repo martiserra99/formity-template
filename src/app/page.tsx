@@ -21,7 +21,8 @@ export default function Home() {
             { value: "football", label: "Football" },
             { value: "basketball", label: "Basketball" },
           ]}
-          value={"football"}
+          value={null}
+          placeholder="Select a sport"
           onChange={(value) => console.log(value)}
         />
       </div>

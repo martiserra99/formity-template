@@ -10,8 +10,9 @@ import clsx from "clsx";
 
 interface ListboxProps {
   options: { value: string; label: string }[];
-  value: string | undefined;
+  value: string | null;
   onChange: (value: string) => void;
+  placeholder?: string;
   className?: string;
 }
 
@@ -19,18 +20,20 @@ export default function Listbox({
   options,
   value,
   onChange,
+  placeholder,
   className,
 }: ListboxProps) {
-  const option = options.find((option) => option.value === value)!;
+  const option = options.find((option) => option.value === value);
   return (
     <HeadlessListbox value={value} onChange={onChange}>
       <ListboxButton
         className={clsx(
           "bg-white/5 border-white/10 data-[focus]:bg-red-400 relative block w-full rounded-xl border px-6 py-4 text-left text-base text-white",
           "data-[active]:ring-white/10 active:outline-none data-[active]:ring-2 data-[active]:ring-offset-2 data-[active]:ring-offset-black",
+          className,
         )}
       >
-        {option.label}
+        {option ? option.label : placeholder}
         <ChevronDownIcon
           className="fill-white/50 pointer-events-none absolute right-3 top-1/2 size-6 -translate-y-1/2"
           aria-hidden="true"
