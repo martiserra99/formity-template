@@ -1,5 +1,9 @@
-import Image from "next/image";
+import Button from "@/components/button";
 
 export default function Home() {
-  return <p className="text-md underline">HOLA</p>;
+  return (
+    <div className="flex h-full items-center justify-center">
+      <Button>HOLA</Button>
+    </div>
+  );
 }

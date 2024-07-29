@@ -1,8 +1,36 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import {
+  Plus_Jakarta_Sans,
+  Spline_Sans_Mono,
+  Chakra_Petch,
+} from "next/font/google";
+import clsx from "clsx";
+
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const plusJakartaSans = Plus_Jakarta_Sans({
+  weight: ["300", "400", "500", "600", "700"],
+  style: "normal",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-plus-jakarta-sans",
+});
+
+const splineSansMono = Spline_Sans_Mono({
+  weight: ["400"],
+  style: "normal",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-spline-sans-mono",
+});
+
+const chakraPetch = Chakra_Petch({
+  weight: ["400"],
+  style: "normal",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-chakra-petch",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +43,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="en"
+      className={clsx(
+        "h-full antialiased",
+        plusJakartaSans.variable,
+        splineSansMono.variable,
+        chakraPetch.variable,
+      )}
+    >
+      <body className="min-h-full bg-black">{children}</body>
     </html>
   );
 }
