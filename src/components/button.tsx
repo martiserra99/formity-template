@@ -11,7 +11,7 @@ export default function Button({ onClick, children, className }: ButtonProps) {
     <button
       onClick={onClick}
       className={clsx(
-        "bg-indigo-500 hover:opacity-95 active:opacity-90 rounded-xl px-8 py-3 text-white",
+        "bg-indigo-500 hover:bg-indigo-400 focus:ring-indigo-400 block w-full rounded-xl px-6 py-4 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black",
         className,
       )}
     >
