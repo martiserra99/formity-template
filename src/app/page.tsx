@@ -1,5 +1,6 @@
 "use client";
 
+import Back from "@/components/back";
 import Label from "@/components/label";
 import Heading from "@/components/heading";
 import Text from "@/components/text";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-2">
       <div className="w-96 space-y-4">
+        <Back />
         <Label>HOLA</Label>
         <Heading>My App</Heading>
         <Text>My App is a great app</Text>
@@ -31,7 +33,7 @@ export default function Home() {
             { value: "yes", label: "Yes" },
             { value: "no", label: "No" },
           ]}
-          value={undefined}
+          value="no"
           onChange={(value) => console.log(value)}
           direction="horizontal"
         />
