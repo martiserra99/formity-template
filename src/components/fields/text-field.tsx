@@ -5,7 +5,6 @@ interface TextFieldProps {
   onChange: (value: string) => void;
   placeholder?: string;
   error?: { message: string } | undefined;
-  className?: string;
 }
 
 export default function TextField({
@@ -13,10 +12,9 @@ export default function TextField({
   onChange,
   placeholder,
   error,
-  className,
 }: TextFieldProps) {
   return (
-    <div className={cn("space-y-1", className)}>
+    <div className="space-y-1">
       <input
         type="text"
         value={value}

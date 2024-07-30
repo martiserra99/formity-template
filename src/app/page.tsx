@@ -6,8 +6,6 @@ import Powered from "@/components/powered";
 import Back from "@/components/buttons/back";
 import Next from "@/components/buttons/next";
 import TextField from "@/components/fields/text-field";
-import Listbox from "@/components/fields/listbox";
-import RadioGroup from "@/components/fields/radio-group";
 
 export default function Home() {
   return (
@@ -26,7 +24,7 @@ export default function Home() {
             onChange={(value) => console.log(value)}
           />,
         ]}
-        button={<Next>Next</Next>}
+        next={<Next>Next</Next>}
       />
       <Powered className="absolute bottom-4 right-4" />
     </div>

@@ -5,14 +5,9 @@ import TextField from "../fields/text-field";
 interface TextFieldProps {
   name: string;
   placeholder?: string;
-  className?: string;
 }
 
-export default function RHFTextField({
-  name,
-  placeholder,
-  className,
-}: TextFieldProps) {
+export default function RHFTextField({ name, placeholder }: TextFieldProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -25,7 +20,6 @@ export default function RHFTextField({
           onChange={field.onChange}
           placeholder={placeholder}
           error={error}
-          className={className}
         />
       )}
     />

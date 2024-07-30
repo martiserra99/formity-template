@@ -4,7 +4,7 @@ interface FormLayoutProps {
   heading: string;
   description?: string;
   fields: React.ReactNode[];
-  button: React.ReactNode;
+  next: React.ReactNode;
 }
 
 export default function FormLayout({
@@ -13,7 +13,7 @@ export default function FormLayout({
   heading,
   description,
   fields,
-  button,
+  next,
 }: FormLayoutProps) {
   return (
     <div className="flex h-full w-full items-center justify-center p-8">
@@ -27,7 +27,7 @@ export default function FormLayout({
           <p className="mt-1 text-base text-neutral-500">{description}</p>
         )}
         <div className="mb-4 mt-4 space-y-4">{fields}</div>
-        {button}
+        {next}
       </div>
     </div>
   );
