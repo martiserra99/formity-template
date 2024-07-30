@@ -26,7 +26,7 @@ export default function App() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Thanks />
+        <Thanks onRestart={() => setResult(null)} />
       </motion.div>
     );
   } else {
