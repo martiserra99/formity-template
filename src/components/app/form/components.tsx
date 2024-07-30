@@ -14,6 +14,7 @@ import FormLayout from "./components/form-layout";
 import Button from "@/components/app/form/components/buttons/button";
 import Back from "@/components/app/form/components/buttons/back";
 import TextField from "./components/fields/text-field";
+import NumberField from "./components/fields/number-field";
 
 type Parameters = {
   form: {
@@ -38,7 +39,10 @@ type Parameters = {
     onBack: OnBack;
   };
   textField: {
-    label: string;
+    name: string;
+    placeholder: string;
+  };
+  numberField: {
     name: string;
     placeholder: string;
   };
@@ -74,6 +78,9 @@ const components: Components<Parameters> = {
   back: ({ onBack }) => <Back onBack={onBack} />,
   textField: ({ name, placeholder }) => (
     <TextField name={name} placeholder={placeholder} />
+  ),
+  numberField: ({ name, placeholder }) => (
+    <NumberField name={name} placeholder={placeholder} />
   ),
 };
 

@@ -20,12 +20,53 @@ const schema: Schema = [
           onNext: "$onNext",
           children: {
             formLayout: {
+              label: "Formity",
               heading: "What is your name?",
+              description: "Tell us your name",
               fields: [
                 {
                   textField: {
                     name: "name",
                     placeholder: "Enter your name",
+                  },
+                },
+              ],
+              button: {
+                button: { text: "Next" },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    form: {
+      defaultValues: {
+        age: [20, []],
+      },
+      resolver: {
+        age: [[{ "#$gt": ["#$age", 18] }, "Must be 18 or older"]],
+      },
+      render: {
+        form: {
+          step: "$step",
+          defaultValues: "$defaultValues",
+          resolver: "$resolver",
+          onNext: "$onNext",
+          children: {
+            formLayout: {
+              back: {
+                back: { onBack: "$onBack" },
+              },
+              label: "Formity",
+              heading: "What is your age?",
+              description: "Tell us your age",
+              fields: [
+                {
+                  numberField: {
+                    name: "age",
+                    placeholder: "Enter your age",
                   },
                 },
               ],

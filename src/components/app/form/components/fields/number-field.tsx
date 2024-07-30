@@ -2,12 +2,12 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import BaseTextField from "./components/text-field";
 
-interface TextFieldProps {
+interface NumberFieldProps {
   name: string;
   placeholder?: string;
 }
 
-export default function TextField({ name, placeholder }: TextFieldProps) {
+export default function NumberField({ name, placeholder }: NumberFieldProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -16,10 +16,10 @@ export default function TextField({ name, placeholder }: TextFieldProps) {
       name={name}
       render={({ field }) => (
         <BaseTextField
-          type="text"
+          type="number"
           name={name}
-          value={field.value}
-          onChange={field.onChange}
+          value={String(field.value)}
+          onChange={(value) => field.onChange(Number(value))}
           placeholder={placeholder}
           error={error}
         />
