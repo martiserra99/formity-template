@@ -52,7 +52,7 @@ export default function RootLayout({
         chakraPetch.variable,
       )}
     >
-      <body className="min-h-full bg-black">{children}</body>
+      <body className="min-h-screen bg-black">{children}</body>
     </html>
   );
 }

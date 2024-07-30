@@ -1,11 +1,11 @@
 import clsx from "clsx";
 
-interface TextProps {
+interface DescriptionProps {
   children: React.ReactNode;
   className?: string;
 }
 
-export default function Text({ children, className }: TextProps) {
+export default function Description({ children, className }: DescriptionProps) {
   return (
     <p className={clsx("text-base text-neutral-500", className)}>{children}</p>
   );

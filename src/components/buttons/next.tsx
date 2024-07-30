@@ -1,12 +1,12 @@
 import clsx from "clsx";
 
-interface ButtonProps {
+interface NextProps {
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
 }
 
-export default function Button({ onClick, children, className }: ButtonProps) {
+export default function Next({ onClick, children, className }: NextProps) {
   return (
     <button
       onClick={onClick}
