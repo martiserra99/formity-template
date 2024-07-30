@@ -5,7 +5,8 @@ import {
   ListboxOptions,
 } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-import clsx from "clsx";
+
+import { cn } from "@/utils";
 
 interface ListboxProps {
   options: { value: string; label: string }[];
@@ -26,7 +27,7 @@ export default function Listbox({
   return (
     <HeadlessListbox value={value} onChange={onChange}>
       <ListboxButton
-        className={clsx(
+        className={cn(
           "relative block w-full rounded-xl border border-white/10 bg-white/5 px-6 py-4 text-left text-base text-white",
           "focus:outline-none data-[active]:ring-2 data-[active]:ring-white/10 data-[active]:ring-offset-2 data-[active]:ring-offset-black",
           className,

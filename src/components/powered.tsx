@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/utils";
 
 interface PoweredProps {
   className?: string;
@@ -7,7 +7,7 @@ interface PoweredProps {
 export default function Powered({ className }: PoweredProps) {
   return (
     <div
-      className={clsx(
+      className={cn(
         "w-max select-none rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-sm text-white/50",
         className,
       )}

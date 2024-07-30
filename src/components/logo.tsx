@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/utils";
 
 interface LogoProps {
   className?: string;
@@ -12,7 +12,7 @@ export default function Logo({ className }: LogoProps) {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={clsx(className)}
+      className={cn(className)}
     >
       <path
         d="M18.55 5.4L21 1H8.73L2 13.08L7.53 23H12.44L7.53 14.2H13.64L16.09 9.8H8.73L11.19 5.4H18.55Z"

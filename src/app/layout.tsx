@@ -4,7 +4,7 @@ import {
   Spline_Sans_Mono,
   Chakra_Petch,
 } from "next/font/google";
-import clsx from "clsx";
+import { cn } from "@/utils";
 
 import "./globals.css";
 
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={clsx(
+      className={cn(
         "h-full antialiased",
         plusJakartaSans.variable,
         splineSansMono.variable,
