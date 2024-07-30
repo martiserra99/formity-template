@@ -82,7 +82,7 @@ const schema: Schema = [
   {
     form: {
       defaultValues: {
-        sport: [null, []],
+        sport: ["football", []],
       },
       resolver: {
         sport: [[{ "#$ne": ["#$sport", null] }, "Required"]],

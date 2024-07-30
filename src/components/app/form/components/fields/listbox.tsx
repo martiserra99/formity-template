@@ -5,10 +5,9 @@ import BaseListbox from "./components/listbox";
 interface ListboxProps {
   name: string;
   options: { value: string; label: string }[];
-  placeholder?: string;
 }
 
-export default function Listbox({ name, options, placeholder }: ListboxProps) {
+export default function Listbox({ name, options }: ListboxProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -20,7 +19,6 @@ export default function Listbox({ name, options, placeholder }: ListboxProps) {
           options={options}
           value={field.value}
           onChange={field.onChange}
-          placeholder={placeholder}
           error={error}
         />
       )}

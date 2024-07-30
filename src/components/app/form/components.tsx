@@ -50,7 +50,6 @@ type Parameters = {
   listbox: {
     name: string;
     options: { value: string; label: string }[];
-    placeholder?: string;
   };
 };
 
@@ -88,9 +87,7 @@ const components: Components<Parameters> = {
   numberField: ({ name, placeholder }) => (
     <NumberField name={name} placeholder={placeholder} />
   ),
-  listbox: ({ name, options, placeholder }) => (
-    <Listbox name={name} options={options} placeholder={placeholder} />
-  ),
+  listbox: ({ name, options }) => <Listbox name={name} options={options} />,
 };
 
 export default components;

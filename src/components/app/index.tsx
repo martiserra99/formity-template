@@ -12,6 +12,7 @@ export default function App() {
   const [result, setResult] = useState<Value | null>(null);
 
   function handleReturn(result: Value) {
+    console.log(result);
     setResult(result);
   }
 

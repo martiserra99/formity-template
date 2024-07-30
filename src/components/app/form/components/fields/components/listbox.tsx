@@ -10,9 +10,8 @@ import { cn } from "@/utils";
 
 interface ListboxProps {
   options: { value: string; label: string }[];
-  value: string | null;
+  value: string;
   onChange: (value: string) => void;
-  placeholder?: string;
   error?: { message: string };
 }
 
@@ -20,19 +19,20 @@ export default function Listbox({
   options,
   value,
   onChange,
-  placeholder,
+  error,
 }: ListboxProps) {
-  const option = options.find((option) => option.value === value);
+  const option = options.find((option) => option.value === value)!;
   return (
-    <div>
+    <div className="space-y-1">
       <HeadlessListbox value={value} onChange={onChange}>
         <ListboxButton
           className={cn(
             "relative block w-full rounded-xl border border-white/10 bg-white/5 px-6 py-4 text-left text-base text-white",
             "focus:outline-none data-[active]:ring-2 data-[active]:ring-white/10 data-[active]:ring-offset-2 data-[active]:ring-offset-black",
+            { "border-red-500 focus:border-red-500 focus:ring-red-500": error },
           )}
         >
-          {option ? option.label : placeholder}
+          {option.label}
           <ChevronDownIcon
             className="pointer-events-none absolute right-3 top-1/2 size-6 -translate-y-1/2 fill-white/50"
             aria-hidden="true"
@@ -57,6 +57,7 @@ export default function Listbox({
           ))}
         </ListboxOptions>
       </HeadlessListbox>
+      {error && <p className="ml-6 text-sm text-red-500">{error.message}</p>}
     </div>
   );
 }
