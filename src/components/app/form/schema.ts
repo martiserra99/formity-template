@@ -160,11 +160,53 @@ const schema: Schema = [
     },
   },
   {
+    form: {
+      defaultValues: {
+        country: ["spain", []],
+      },
+      resolver: {},
+      render: {
+        form: {
+          step: "$step",
+          defaultValues: "$defaultValues",
+          resolver: "$resolver",
+          onNext: "$onNext",
+          children: {
+            formLayout: {
+              back: {
+                back: { onBack: "$onBack" },
+              },
+              label: "Formity",
+              heading: "Where do you live?",
+              description: "Tell us if you like music",
+              fields: [
+                {
+                  select: {
+                    name: "country",
+                    options: [
+                      { value: "spain", label: "Spain" },
+                      { value: "france", label: "France" },
+                      { value: "germany", label: "Germany" },
+                    ],
+                  },
+                },
+              ],
+              button: {
+                button: { text: "Next" },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     return: {
       name: "$name",
       age: "$age",
       sport: "$sport",
       music: "$music",
+      country: "$country",
     },
   },
 ];

@@ -17,6 +17,7 @@ import TextField from "./components/fields/text-field";
 import NumberField from "./components/fields/number-field";
 import Listbox from "./components/fields/listbox";
 import YesNo from "./components/fields/yes-no";
+import Select from "./components/fields/select";
 
 type Parameters = {
   form: {
@@ -54,6 +55,10 @@ type Parameters = {
   };
   yesNo: {
     name: string;
+  };
+  select: {
+    name: string;
+    options: { value: string; label: string }[];
   };
 };
 
@@ -93,6 +98,7 @@ const components: Components<Parameters> = {
   ),
   listbox: ({ name, options }) => <Listbox name={name} options={options} />,
   yesNo: ({ name }) => <YesNo name={name} />,
+  select: ({ name, options }) => <Select name={name} options={options} />,
 };
 
 export default components;
