@@ -1,12 +1,12 @@
-import { useAnimate } from "@/features/animate";
-
 import { cn } from "@/utils";
 
-interface NextProps {
+import { useAnimate } from "../../animate";
+
+interface ButtonProps {
   children: React.ReactNode;
 }
 
-export default function Next({ children }: NextProps) {
+export default function Button({ children }: ButtonProps) {
   const { animate } = useAnimate();
   return (
     <button

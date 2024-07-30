@@ -9,11 +9,11 @@ import {
 } from "formity";
 import { Value } from "expry";
 
-import Form from "@/components/form";
-import FormLayout from "@/components/form-layout";
-import Next from "@/components/buttons/next";
-import Back from "@/components/buttons/back";
-import RHFTextField from "@/components/react-hook-form/rhf-text-field";
+import Form from "./components/form";
+import FormLayout from "./components/form-layout";
+import Button from "@/components/app/form/components/buttons/button";
+import Back from "@/components/app/form/components/buttons/back";
+import TextField from "./components/fields/text-field";
 
 type Parameters = {
   form: {
@@ -29,9 +29,9 @@ type Parameters = {
     heading: string;
     description?: string;
     fields: Value[];
-    next: Value;
+    button: Value;
   };
-  next: {
+  button: {
     text: string;
   };
   back: {
@@ -55,22 +55,25 @@ const components: Components<Parameters> = {
       {render(children)}
     </Form>
   ),
-  formLayout: ({ back, label, heading, description, fields, next }, render) => (
+  formLayout: (
+    { back, label, heading, description, fields, button },
+    render,
+  ) => (
     <FormLayout
-      back={render(back)}
+      back={back ? render(back) : undefined}
       label={label}
       heading={heading}
       description={description}
       fields={fields.map((field, index) => (
         <Fragment key={index}>{render(field)}</Fragment>
       ))}
-      next={render(next)}
+      button={render(button)}
     />
   ),
-  next: ({ text }) => <Next>{text}</Next>,
+  button: ({ text }) => <Button>{text}</Button>,
   back: ({ onBack }) => <Back onBack={onBack} />,
   textField: ({ name, placeholder }) => (
-    <RHFTextField name={name} placeholder={placeholder} />
+    <TextField name={name} placeholder={placeholder} />
   ),
 };
 

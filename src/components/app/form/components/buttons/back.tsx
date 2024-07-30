@@ -4,7 +4,7 @@ import { OnBack } from "formity";
 
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 
-import { useAnimate } from "@/features/animate";
+import { useAnimate } from "../../animate";
 
 import { cn } from "@/utils";
 

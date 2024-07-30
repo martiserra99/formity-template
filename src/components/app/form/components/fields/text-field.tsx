@@ -1,13 +1,13 @@
 import { useFormContext, Controller } from "react-hook-form";
 
-import TextField from "../fields/text-field";
+import BaseTextField from "./components/text-field";
 
 interface TextFieldProps {
   name: string;
   placeholder?: string;
 }
 
-export default function RHFTextField({ name, placeholder }: TextFieldProps) {
+export default function TextField({ name, placeholder }: TextFieldProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -15,7 +15,7 @@ export default function RHFTextField({ name, placeholder }: TextFieldProps) {
       control={control}
       name={name}
       render={({ field }) => (
-        <TextField
+        <BaseTextField
           value={field.value}
           onChange={field.onChange}
           placeholder={placeholder}

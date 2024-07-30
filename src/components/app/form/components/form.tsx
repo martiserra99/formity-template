@@ -9,7 +9,7 @@ import { AnimatePresence, motion, MotionProps } from "framer-motion";
 import { FormProvider, useForm } from "react-hook-form";
 import { Step, DefaultValues, Resolver, OnNext, Variables } from "formity";
 
-import { Animate, AnimateContext, useAnimate } from "@/features/animate";
+import { Animate, AnimateContext, useAnimate } from "../animate";
 
 interface FormProps {
   step: Step;
