@@ -124,10 +124,47 @@ const schema: Schema = [
     },
   },
   {
+    form: {
+      defaultValues: {
+        music: [true, []],
+      },
+      resolver: {},
+      render: {
+        form: {
+          step: "$step",
+          defaultValues: "$defaultValues",
+          resolver: "$resolver",
+          onNext: "$onNext",
+          children: {
+            formLayout: {
+              back: {
+                back: { onBack: "$onBack" },
+              },
+              label: "Formity",
+              heading: "Do you like music?",
+              description: "Tell us if you like music",
+              fields: [
+                {
+                  yesNo: {
+                    name: "music",
+                  },
+                },
+              ],
+              button: {
+                button: { text: "Next" },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     return: {
       name: "$name",
       age: "$age",
       sport: "$sport",
+      music: "$music",
     },
   },
 ];
