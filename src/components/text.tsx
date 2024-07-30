@@ -7,6 +7,6 @@ interface TextProps {
 
 export default function Text({ children, className }: TextProps) {
   return (
-    <p className={clsx("text-neutral-500 text-base", className)}>{children}</p>
+    <p className={clsx("text-base text-neutral-500", className)}>{children}</p>
   );
 }

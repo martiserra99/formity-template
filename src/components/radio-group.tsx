@@ -32,13 +32,13 @@ export default function RadioGroup({
           key={option.value}
           value={option.value}
           className={clsx(
-            "bg-white/5 border-white/10 group relative block w-full rounded-xl border px-6 py-4 text-left text-base text-white",
-            "data-[focus]:ring-white/10 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-offset-2 data-[focus]:ring-offset-black",
+            "group relative block w-full rounded-xl border border-white/10 bg-white/5 px-6 py-4 text-left text-base text-white",
+            "focus:outline-none data-[focus]:ring-2 data-[focus]:ring-white/10 data-[focus]:ring-offset-2 data-[focus]:ring-offset-black",
             "data-[checked]:border-white/50",
           )}
         >
           {option.label}
-          <CheckIcon className="fill-white/50 pointer-events-none absolute right-3 top-1/2 size-5 -translate-y-1/2 group-data-[checked]:fill-white/100" />
+          <CheckIcon className="pointer-events-none absolute right-3 top-1/2 size-5 -translate-y-1/2 fill-white/50 group-data-[checked]:fill-white/100" />
         </Radio>
       ))}
     </HeadlessRadioGroup>
