@@ -15,6 +15,7 @@ import Button from "@/components/app/form/components/buttons/button";
 import Back from "@/components/app/form/components/buttons/back";
 import TextField from "./components/fields/text-field";
 import NumberField from "./components/fields/number-field";
+import Listbox from "./components/fields/listbox";
 
 type Parameters = {
   form: {
@@ -45,6 +46,11 @@ type Parameters = {
   numberField: {
     name: string;
     placeholder: string;
+  };
+  listbox: {
+    name: string;
+    options: { value: string; label: string }[];
+    placeholder?: string;
   };
 };
 
@@ -81,6 +87,9 @@ const components: Components<Parameters> = {
   ),
   numberField: ({ name, placeholder }) => (
     <NumberField name={name} placeholder={placeholder} />
+  ),
+  listbox: ({ name, options, placeholder }) => (
+    <Listbox name={name} options={options} placeholder={placeholder} />
   ),
 };
 

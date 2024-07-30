@@ -80,8 +80,54 @@ const schema: Schema = [
     },
   },
   {
+    form: {
+      defaultValues: {
+        sport: [null, []],
+      },
+      resolver: {
+        sport: [[{ "#$ne": ["#$sport", null] }, "Required"]],
+      },
+      render: {
+        form: {
+          step: "$step",
+          defaultValues: "$defaultValues",
+          resolver: "$resolver",
+          onNext: "$onNext",
+          children: {
+            formLayout: {
+              back: {
+                back: { onBack: "$onBack" },
+              },
+              label: "Formity",
+              heading: "What is your favourite sport?",
+              description: "Tell us your favourite sport",
+              fields: [
+                {
+                  listbox: {
+                    name: "sport",
+                    options: [
+                      { value: "football", label: "Football" },
+                      { value: "basketball", label: "Basketball" },
+                      { value: "tennis", label: "Tennis" },
+                    ],
+                    placeholder: "Select your favourite sport",
+                  },
+                },
+              ],
+              button: {
+                button: { text: "Next" },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     return: {
       name: "$name",
+      age: "$age",
+      sport: "$sport",
     },
   },
 ];

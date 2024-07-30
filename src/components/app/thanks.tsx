@@ -14,8 +14,7 @@ export default function Thanks({ onRestart }: ThanksProps) {
           Thanks for answering the questions
         </h1>
         <p className="mb-6 text-base text-neutral-500">
-          Thank you very much for having answered all these questions. If you
-          want to start again from the beginning, click on the button below.
+          Take a look at the console to see the data you have submitted.
         </p>
         <button
           onClick={onRestart}

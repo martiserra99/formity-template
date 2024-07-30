@@ -6,7 +6,7 @@ interface TextFieldProps {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
-  error?: { message: string } | undefined;
+  error?: { message: string };
 }
 
 export default function TextField({
