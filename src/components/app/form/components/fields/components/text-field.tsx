@@ -2,6 +2,8 @@ import { useId } from "react";
 
 import { cn } from "@/utils";
 
+import Field from "@/components/app/ui/field";
+
 interface TextFieldProps {
   type: string;
   label: string;
@@ -19,34 +21,27 @@ export default function TextField({
 }: TextFieldProps) {
   const id = useId();
   return (
-    <div className="space-y-1">
-      <div className="relative">
-        <input
-          id={id}
-          type={type}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder={label}
-          className={cn(
-            "peer block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white placeholder-transparent focus:outline-none",
-            "focus:border-neutral-600 focus:ring-transparent",
-            { "border-red-500 focus:border-red-500": error },
-          )}
-        />
-        <label
-          htmlFor={id}
-          className={cn(
-            "absolute -top-[11px] left-[29px] block select-none text-sm text-neutral-500 transition-all",
-            "before:absolute before:left-0 before:right-0 before:top-[11px] before:h-px before:bg-neutral-950",
-            "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-base peer-placeholder-shown:before:bg-transparent",
-            "peer-focus:-top-[11px] peer-focus:text-sm peer-focus:before:bg-neutral-950",
-            { "text-red-500": error },
-          )}
-        >
-          <span className="relative z-10">{label}</span>
-        </label>
-      </div>
-      {error && <p className="ml-7 text-sm text-red-500">{error.message}</p>}
-    </div>
+    <Field
+      id={id}
+      label={label}
+      labelClasses={cn(
+        "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-base peer-placeholder-shown:before:bg-transparent",
+        "peer-focus:-top-[11px] peer-focus:text-sm peer-focus:before:bg-neutral-950",
+      )}
+      error={error}
+    >
+      <input
+        id={id}
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={label}
+        className={cn(
+          "peer block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white placeholder-transparent focus:outline-none",
+          "focus:border-neutral-600 focus:ring-transparent",
+          { "border-red-500 focus:border-red-500": error },
+        )}
+      />
+    </Field>
   );
 }
