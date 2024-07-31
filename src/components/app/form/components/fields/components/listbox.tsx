@@ -10,6 +10,7 @@ import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { cn } from "@/utils";
 
 import Field from "@/components/app/ui/field";
+import Input from "@/components/app/ui/input";
 
 interface ListboxProps {
   label: string;
@@ -31,13 +32,12 @@ export default function Listbox({
   return (
     <Field id={id} label={label} error={error}>
       <HeadlessListbox value={value} onChange={onChange}>
-        <ListboxButton
+        <Input
+          as={ListboxButton}
           className={cn(
-            "peer flex w-full items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white focus:outline-none",
-            "focus:border-neutral-600 focus:ring-transparent data-[active]:border-neutral-600 data-[active]:ring-transparent",
+            "flex items-center gap-2 focus:outline-none data-[active]:border-neutral-500",
             {
-              "border-red-500 focus:border-red-500 data-[active]:border-red-500":
-                error,
+              "border-red-500": error,
             },
           )}
         >
@@ -46,7 +46,7 @@ export default function Listbox({
             className="pointer-events-none ml-auto size-6 fill-white/50"
             aria-hidden="true"
           />
-        </ListboxButton>
+        </Input>
         <ListboxOptions
           anchor="bottom"
           transition

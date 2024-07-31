@@ -6,7 +6,7 @@ interface FieldProps {
   children: React.ReactNode;
   id: string;
   label: string;
-  labelClasses?: string;
+  labelClassName?: string;
   error: { message: string } | undefined;
 }
 
@@ -14,7 +14,7 @@ export default function Field({
   children,
   id,
   label,
-  labelClasses,
+  labelClassName,
   error,
 }: FieldProps) {
   return (
@@ -26,8 +26,8 @@ export default function Field({
           className={cn(
             "absolute -top-[11px] left-[29px] block select-none text-sm text-neutral-500 transition-all",
             "before:absolute before:left-0 before:right-0 before:top-[11px] before:h-px before:bg-neutral-950",
-            labelClasses,
             { "text-red-500": error },
+            labelClassName,
           )}
         >
           <span className="relative z-10">{label}</span>

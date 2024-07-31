@@ -4,6 +4,7 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 import { cn } from "@/utils";
 
 import Field from "@/components/app/ui/field";
+import Input from "@/components/app/ui/input";
 
 interface CheckboxGroupProps {
   label: string;
@@ -26,29 +27,29 @@ export default function CheckboxGroup({
   return (
     <Field id={id} label={label} error={error}>
       <div
-        className={cn(
-          "peer flex gap-4",
-          { "flex-col": direction === "vertical" },
-          { "flex-row": direction === "horizontal" },
-        )}
+        className={cn("peer flex flex-col gap-4", {
+          "flex-row": direction === "horizontal",
+        })}
       >
         {options.map((option) => (
-          <button
+          <Input
             key={option.value}
-            type="button"
-            value={option.value}
-            onClick={() => {
-              if (value.includes(option.value)) {
-                onChange(value.filter((v) => v !== option.value));
-              } else {
-                onChange([...value, option.value]);
-              }
+            as="button"
+            props={{
+              type: "button",
+              value: option.value,
+              onClick: () => {
+                if (value.includes(option.value)) {
+                  onChange(value.filter((v) => v !== option.value));
+                } else {
+                  onChange([...value, option.value]);
+                }
+              },
             }}
             className={cn(
-              "group flex w-full cursor-default items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white focus:outline-none",
-              "active:border-neutral-600 active:ring-transparent",
+              "group flex cursor-default items-center gap-2 focus:outline-none",
               { "border-neutral-500": value.includes(option.value) },
-              { "border-red-500 active:border-red-500": error },
+              { "border-red-500": error },
             )}
           >
             {option.label}
@@ -58,7 +59,7 @@ export default function CheckboxGroup({
                 { "fill-white/100": value.includes(option.value) },
               )}
             />
-          </button>
+          </Input>
         ))}
       </div>
     </Field>
