@@ -24,43 +24,48 @@ const schema: Schema = [
         ],
       },
       render: {
-        form: {
-          step: "$step",
-          defaultValues: "$defaultValues",
-          resolver: "$resolver",
-          onNext: "$onNext",
+        screen: {
+          progress: { total: 3, current: 1 },
           children: {
-            formLayout: {
-              heading: "Tell us about yourself",
-              description: "We would want to know a little bit more about you",
-              fields: [
-                {
-                  row: {
-                    items: [
-                      {
-                        textField: {
-                          name: "name",
-                          label: "Name",
-                        },
+            form: {
+              step: "$step",
+              defaultValues: "$defaultValues",
+              resolver: "$resolver",
+              onNext: "$onNext",
+              children: {
+                formLayout: {
+                  heading: "Tell us about yourself",
+                  description: "We would want to know a little bit more about you",
+                  fields: [
+                    {
+                      row: {
+                        items: [
+                          {
+                            textField: {
+                              name: "name",
+                              label: "Name",
+                            },
+                          },
+                          {
+                            textField: {
+                              name: "surname",
+                              label: "Surname",
+                            },
+                          },
+                        ],
                       },
-                      {
-                        textField: {
-                          name: "surname",
-                          label: "Surname",
-                        },
+                    },
+                    {
+                      numberField: {
+                        name: "age",
+                        label: "Age",
                       },
-                    ],
+                    },
+                  ],
+                  button: {
+                    button: { text: "Next" },
                   },
                 },
-                {
-                  numberField: {
-                    name: "age",
-                    label: "Age",
-                  },
-                },
-              ],
-              button: {
-                button: { text: "Next" },
               },
             },
           },
@@ -75,28 +80,33 @@ const schema: Schema = [
       },
       resolver: {},
       render: {
-        form: {
-          step: "$step",
-          defaultValues: "$defaultValues",
-          resolver: "$resolver",
-          onNext: "$onNext",
+        screen: {
+          progress: { total: 3, current: 2 },
           children: {
-            formLayout: {
-              back: {
-                back: { onBack: "$onBack" },
-              },
-              heading: "Are you a software developer?",
-              description: "We would like to know if you are a software developer.",
-              fields: [
-                {
-                  yesNo: {
-                    name: "softwareDeveloper",
-                    label: "Software Developer",
+            form: {
+              step: "$step",
+              defaultValues: "$defaultValues",
+              resolver: "$resolver",
+              onNext: "$onNext",
+              children: {
+                formLayout: {
+                  heading: "Are you a software developer?",
+                  description: "We would like to know if you are a software developer.",
+                  fields: [
+                    {
+                      yesNo: {
+                        name: "softwareDeveloper",
+                        label: "Software Developer",
+                      },
+                    },
+                  ],
+                  button: {
+                    button: { text: "Next" },
+                  },
+                  back: {
+                    back: { onBack: "$onBack" },
                   },
                 },
-              ],
-              button: {
-                button: { text: "Next" },
               },
             },
           },
@@ -131,30 +141,36 @@ const schema: Schema = [
             },
             resolver: {},
             render: {
-              form: {
-                step: "$step",
-                defaultValues: "$defaultValues",
-                resolver: "$resolver",
-                onNext: "$onNext",
+              screen: {
+                progress: { total: 3, current: 3 },
                 children: {
-                  formLayout: {
-                    back: {
-                      back: { onBack: "$onBack" },
-                    },
-                    heading: "What are your favourite programming languages?",
-                    description: "We would like to know which of the following programming languages you like the most",
-                    fields: [
-                      {
-                        multiSelect: {
-                          name: "languages",
-                          label: "Languages",
-                          options: "$languagesOptions",
-                          direction: "vertical",
+                  form: {
+                    step: "$step",
+                    defaultValues: "$defaultValues",
+                    resolver: "$resolver",
+                    onNext: "$onNext",
+                    children: {
+                      formLayout: {
+                        heading: "What are your favourite programming languages?",
+                        description:
+                          "We would like to know which of the following programming languages you like the most",
+                        fields: [
+                          {
+                            multiSelect: {
+                              name: "languages",
+                              label: "Languages",
+                              options: "$languagesOptions",
+                              direction: "vertical",
+                            },
+                          },
+                        ],
+                        button: {
+                          button: { text: "Next" },
+                        },
+                        back: {
+                          back: { onBack: "$onBack" },
                         },
                       },
-                    ],
-                    button: {
-                      button: { text: "Next" },
                     },
                   },
                 },
@@ -191,37 +207,42 @@ const schema: Schema = [
                   },
                   resolver: {},
                   render: {
-                    form: {
-                      step: "$step",
-                      defaultValues: "$defaultValues",
-                      resolver: "$resolver",
-                      onNext: "$onNext",
+                    screen: {
+                      progress: { total: { $add: [3, { $size: "$languages" }] }, current: { $add: [4, "$i"] } },
                       children: {
-                        formLayout: {
-                          back: {
-                            back: { onBack: "$onBack" },
-                          },
-                          heading: "$question",
-                          description:
-                            "Since you said it is one of your favourite languages, we would like to know how much you like it",
-                          fields: [
-                            {
-                              select: {
-                                name: "score",
-                                label: "Score",
-                                options: [
-                                  { value: "5", label: "5" },
-                                  { value: "4", label: "4" },
-                                  { value: "3", label: "3" },
-                                  { value: "2", label: "2" },
-                                  { value: "1", label: "1" },
-                                ],
-                                direction: "vertical",
+                        form: {
+                          step: "$step",
+                          defaultValues: "$defaultValues",
+                          resolver: "$resolver",
+                          onNext: "$onNext",
+                          children: {
+                            formLayout: {
+                              heading: "$question",
+                              description:
+                                "Since you said it is one of your favourite languages, we would like to know how much you like it",
+                              fields: [
+                                {
+                                  select: {
+                                    name: "score",
+                                    label: "Score",
+                                    options: [
+                                      { value: "5", label: "5" },
+                                      { value: "4", label: "4" },
+                                      { value: "3", label: "3" },
+                                      { value: "2", label: "2" },
+                                      { value: "1", label: "1" },
+                                    ],
+                                    direction: "vertical",
+                                  },
+                                },
+                              ],
+                              button: {
+                                button: { text: "Next" },
+                              },
+                              back: {
+                                back: { onBack: "$onBack" },
                               },
                             },
-                          ],
-                          button: {
-                            button: { text: "Next" },
                           },
                         },
                       },
@@ -257,33 +278,38 @@ const schema: Schema = [
             },
             resolver: {},
             render: {
-              form: {
-                step: "$step",
-                defaultValues: "$defaultValues",
-                resolver: "$resolver",
-                onNext: "$onNext",
+              screen: {
+                progress: { total: 3, current: 3 },
                 children: {
-                  formLayout: {
-                    back: {
-                      back: { onBack: "$onBack" },
-                    },
-                    heading: "Would you be interested in learning how to code?",
-                    description: "Learning how to code can be a really useful skill.",
-                    fields: [
-                      {
-                        listbox: {
-                          name: "interested",
-                          label: "Interested",
-                          options: [
-                            { value: "maybe", label: "Maybe in another time." },
-                            { value: "yes", label: "Yes, that sounds good." },
-                            { value: "no", label: "No, it is not for me." },
-                          ],
+                  form: {
+                    step: "$step",
+                    defaultValues: "$defaultValues",
+                    resolver: "$resolver",
+                    onNext: "$onNext",
+                    children: {
+                      formLayout: {
+                        heading: "Would you be interested in learning how to code?",
+                        description: "Learning how to code can be a really useful skill.",
+                        fields: [
+                          {
+                            listbox: {
+                              name: "interested",
+                              label: "Interested",
+                              options: [
+                                { value: "maybe", label: "Maybe in another time." },
+                                { value: "yes", label: "Yes, that sounds good." },
+                                { value: "no", label: "No, it is not for me." },
+                              ],
+                            },
+                          },
+                        ],
+                        button: {
+                          button: { text: "Next" },
+                        },
+                        back: {
+                          back: { onBack: "$onBack" },
                         },
                       },
-                    ],
-                    button: {
-                      button: { text: "Next" },
                     },
                   },
                 },
