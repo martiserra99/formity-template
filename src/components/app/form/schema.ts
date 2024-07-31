@@ -96,19 +96,18 @@ const schema: Schema = [
               back: {
                 back: { onBack: "$onBack" },
               },
-              label: "Formity",
               heading: "What is your favourite sport?",
               description: "Tell us your favourite sport",
               fields: [
                 {
                   listbox: {
                     name: "sport",
+                    label: "Sport",
                     options: [
                       { value: "football", label: "Football" },
                       { value: "basketball", label: "Basketball" },
                       { value: "tennis", label: "Tennis" },
                     ],
-                    placeholder: "Select your favourite sport",
                   },
                 },
               ],

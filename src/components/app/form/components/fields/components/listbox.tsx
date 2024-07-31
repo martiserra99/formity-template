@@ -1,3 +1,4 @@
+import { useId } from "react";
 import {
   Listbox as HeadlessListbox,
   ListboxButton,
@@ -9,47 +10,63 @@ import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { cn } from "@/utils";
 
 interface ListboxProps {
-  options: { value: string; label: string }[];
+  label: string;
   value: string;
   onChange: (value: string) => void;
-  error?: { message: string };
+  options: { value: string; label: string }[];
+  error: { message: string } | undefined;
 }
 
 export default function Listbox({
-  options,
+  label,
   value,
   onChange,
+  options,
   error,
 }: ListboxProps) {
+  const id = useId();
   const option = options.find((option) => option.value === value)!;
   return (
     <div className="space-y-1">
       <HeadlessListbox value={value} onChange={onChange}>
-        <ListboxButton
-          className={cn(
-            "relative block w-full rounded-xl border border-white/10 bg-white/5 px-6 py-4 text-left text-base text-white",
-            "focus:outline-none data-[active]:ring-2 data-[active]:ring-white/10 data-[active]:ring-offset-2 data-[active]:ring-offset-black",
-            { "border-red-500 focus:border-red-500 focus:ring-red-500": error },
-          )}
-        >
-          {option.label}
-          <ChevronDownIcon
-            className="pointer-events-none absolute right-3 top-1/2 size-6 -translate-y-1/2 fill-white/50"
-            aria-hidden="true"
-          />
-        </ListboxButton>
+        <div className="relative">
+          <ListboxButton
+            className={cn(
+              "peer relative block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white placeholder-transparent",
+              "focus:border-neutral-600 focus:ring-transparent data-[active]:border-neutral-600 data-[active]:ring-transparent",
+              {
+                "border-red-500 focus:border-red-500 data-[active]:border-red-500":
+                  error,
+              },
+            )}
+          >
+            {option.label}
+            <ChevronDownIcon
+              className="pointer-events-none absolute right-3 top-1/2 size-6 -translate-y-1/2 fill-white/50"
+              aria-hidden="true"
+            />
+          </ListboxButton>
+          <label
+            htmlFor={id}
+            className={cn(
+              "absolute -top-[11px] left-[29px] block text-sm text-neutral-500 transition-all",
+              "before:absolute before:left-0 before:right-0 before:top-[11px] before:h-px before:bg-neutral-950",
+              { "text-red-500": error },
+            )}
+          >
+            <span className="relative z-10">{label}</span>
+          </label>
+        </div>
         <ListboxOptions
           anchor="bottom"
           transition
-          className="relative w-[var(--button-width)] rounded-xl p-1 [--anchor-gap:8px] focus:outline-none"
+          className="w-[var(--button-width)] rounded-3xl border border-neutral-800 bg-neutral-950 px-1 py-1 [--anchor-gap:8px] focus:outline-none"
         >
-          <div className="absolute inset-0 rounded-xl bg-black" />
-          <div className="absolute inset-0 rounded-xl border border-white/10 bg-white/5" />
           {options.map((option) => (
             <ListboxOption
               key={option.value}
               value={option.value}
-              className="group relative z-10 flex cursor-default select-none items-center gap-2 rounded-lg px-3 py-2 data-[focus]:bg-white/10"
+              className="group relative z-10 flex cursor-default select-none items-center gap-2 rounded-full px-3 py-2 data-[focus]:bg-white/10"
             >
               <CheckIcon className="invisible size-4 fill-white group-data-[selected]:visible" />
               <div className="text-sm text-white">{option.label}</div>

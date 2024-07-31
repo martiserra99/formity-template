@@ -31,9 +31,9 @@ export default function TextField({
           onChange={(e) => onChange(e.target.value)}
           placeholder={label}
           className={cn(
-            "peer block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-white placeholder-transparent",
+            "peer block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white placeholder-transparent",
             "focus:border-neutral-600 focus:ring-transparent",
-            { "border-red-500 focus:border-red-500 focus:ring-red-500": error },
+            { "border-red-500 focus:border-red-500": error },
           )}
         />
         <label
@@ -43,6 +43,7 @@ export default function TextField({
             "before:absolute before:left-0 before:right-0 before:top-[11px] before:h-px before:bg-neutral-950",
             "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-base peer-placeholder-shown:before:bg-transparent",
             "peer-focus:-top-[11px] peer-focus:text-sm peer-focus:before:bg-neutral-950",
+            { "text-red-500": error },
           )}
         >
           <span className="relative z-10">{label}</span>

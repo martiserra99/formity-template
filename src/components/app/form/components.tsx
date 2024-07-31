@@ -50,6 +50,7 @@ type Parameters = {
   };
   listbox: {
     name: string;
+    label: string;
     options: { value: string; label: string }[];
   };
   yesNo: {
@@ -87,7 +88,9 @@ const components: Components<Parameters> = {
   back: ({ onBack }) => <Back onBack={onBack} />,
   textField: ({ name, label }) => <TextField name={name} label={label} />,
   numberField: ({ name, label }) => <NumberField name={name} label={label} />,
-  listbox: ({ name, options }) => <Listbox name={name} options={options} />,
+  listbox: ({ name, label, options }) => (
+    <Listbox name={name} label={label} options={options} />
+  ),
   yesNo: ({ name }) => <YesNo name={name} />,
   select: ({ name, options }) => <Select name={name} options={options} />,
 };
