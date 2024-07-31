@@ -7,7 +7,7 @@ interface ScreenProps {
 
 export default function Screen({ progress, children }: ScreenProps) {
   return (
-    <div className="relative h-screen w-full">
+    <div className="relative h-screen min-h-[800px] w-full">
       <Progress total={progress.total} current={progress.current} />
       {children}
     </div>
