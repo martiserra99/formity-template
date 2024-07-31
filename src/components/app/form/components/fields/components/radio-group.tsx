@@ -41,6 +41,7 @@ export default function RadioGroup({
             props={{ value: option.value }}
             className={cn(
               "group flex cursor-default items-center gap-2 focus:outline-none data-[checked]:border-neutral-500",
+              { "border-red-500 data-[checked]:border-red-500": error },
             )}
           >
             {option.label}
