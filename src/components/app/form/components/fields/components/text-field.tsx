@@ -36,7 +36,7 @@ export default function TextField({
         <label
           htmlFor={id}
           className={cn(
-            "absolute -top-[11px] left-[29px] block cursor-auto text-sm text-neutral-500 transition-all",
+            "absolute -top-[11px] left-[29px] block select-none text-sm text-neutral-500 transition-all",
             "before:absolute before:left-0 before:right-0 before:top-[11px] before:h-px before:bg-neutral-950",
             "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-base peer-placeholder-shown:before:bg-transparent",
             "peer-focus:-top-[11px] peer-focus:text-sm peer-focus:before:bg-neutral-950",

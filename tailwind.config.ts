@@ -16,6 +16,7 @@ const config: Config = {
           "var(--font-plus-jakarta-sans)",
           ...defaultTheme.fontFamily.sans,
         ],
+        mono: ["var(--font-spline-sans-mono)", ...defaultTheme.fontFamily.mono],
       },
     },
   },

@@ -6,13 +6,12 @@ import { ReactElement, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Form from "./form";
-import Thanks from "./thanks";
+import Result from "./result";
 
 export default function App() {
   const [result, setResult] = useState<Value | null>(null);
 
   function handleReturn(result: Value) {
-    console.log(result);
     setResult(result);
   }
 
@@ -27,7 +26,7 @@ export default function App() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Thanks onRestart={() => setResult(null)} />
+        <Result result={result} onRestart={() => setResult(null)} />
       </motion.div>
     );
   } else {

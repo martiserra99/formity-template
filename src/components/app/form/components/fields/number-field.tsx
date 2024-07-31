@@ -18,7 +18,7 @@ export default function NumberField({ name, label }: NumberFieldProps) {
         <TextField
           type="number"
           label={label}
-          value={String(field.value)}
+          value={field.value === null ? "" : String(field.value)}
           onChange={(value) =>
             field.onChange(value === "" ? null : Number(value))
           }
