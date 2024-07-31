@@ -199,12 +199,55 @@ const schema: Schema = [
     },
   },
   {
+    form: {
+      defaultValues: {
+        fruits: [["apple", "orange"], []],
+      },
+      resolver: {},
+      render: {
+        form: {
+          step: "$step",
+          defaultValues: "$defaultValues",
+          resolver: "$resolver",
+          onNext: "$onNext",
+          children: {
+            formLayout: {
+              back: {
+                back: { onBack: "$onBack" },
+              },
+              heading: "What are your favourite fruits?",
+              description: "Tell us if your favourite fruits",
+              fields: [
+                {
+                  multiSelect: {
+                    name: "fruits",
+                    label: "Fruits",
+                    options: [
+                      { value: "apple", label: "Apple" },
+                      { value: "banana", label: "Banana" },
+                      { value: "orange", label: "Orange" },
+                    ],
+                    direction: "vertical",
+                  },
+                },
+              ],
+              button: {
+                button: { text: "Next" },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     return: {
       name: "$name",
       age: "$age",
       sport: "$sport",
       music: "$music",
       country: "$country",
+      fruits: "$fruits",
     },
   },
 ];

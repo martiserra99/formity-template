@@ -1,13 +1,20 @@
 import { useFormContext, Controller } from "react-hook-form";
 
-import BaseTextField from "./components/text-field";
+import CheckboxGroup from "./components/checkbox-group";
 
-interface TextFieldProps {
+interface MultiSelectProps {
   name: string;
   label: string;
+  options: { value: string; label: string }[];
+  direction: "horizontal" | "vertical";
 }
 
-export default function TextField({ name, label }: TextFieldProps) {
+export default function MultiSelect({
+  name,
+  label,
+  options,
+  direction,
+}: MultiSelectProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -15,11 +22,12 @@ export default function TextField({ name, label }: TextFieldProps) {
       control={control}
       name={name}
       render={({ field }) => (
-        <BaseTextField
-          type="text"
+        <CheckboxGroup
           label={label}
           value={field.value}
           onChange={field.onChange}
+          options={options}
+          direction={direction}
           error={error}
         />
       )}

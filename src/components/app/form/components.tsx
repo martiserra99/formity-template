@@ -18,6 +18,7 @@ import NumberField from "./components/fields/number-field";
 import Listbox from "./components/fields/listbox";
 import YesNo from "./components/fields/yes-no";
 import Select from "./components/fields/select";
+import MultiSelect from "./components/fields/multi-select";
 
 type Parameters = {
   form: {
@@ -63,6 +64,12 @@ type Parameters = {
     options: { value: string; label: string }[];
     direction: "horizontal" | "vertical";
   };
+  multiSelect: {
+    name: string;
+    label: string;
+    options: { value: string; label: string }[];
+    direction: "horizontal" | "vertical";
+  };
 };
 
 const components: Components<Parameters> = {
@@ -97,6 +104,14 @@ const components: Components<Parameters> = {
   yesNo: ({ name, label }) => <YesNo name={name} label={label} />,
   select: ({ name, label, options, direction }) => (
     <Select name={name} label={label} options={options} direction={direction} />
+  ),
+  multiSelect: ({ name, label, options, direction }) => (
+    <MultiSelect
+      name={name}
+      label={label}
+      options={options}
+      direction={direction}
+    />
   ),
 };
 

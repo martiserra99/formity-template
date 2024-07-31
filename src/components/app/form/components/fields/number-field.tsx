@@ -17,7 +17,6 @@ export default function NumberField({ name, label }: NumberFieldProps) {
       render={({ field }) => (
         <TextField
           type="number"
-          name={name}
           label={label}
           value={String(field.value)}
           onChange={(value) =>
