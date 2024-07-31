@@ -25,9 +25,9 @@ export default function Back({ onBack }: BackProps) {
     <button
       onClick={handleClick}
       className={cn(
-        "block rounded-xl border border-white/10 bg-white/5 p-3 hover:bg-white/10",
-        "focus:outline-none focus:ring-2 focus:ring-white/10 focus:ring-offset-2 focus:ring-offset-black",
-        "disabled:bg-white/5 disabled:opacity-60",
+        "block rounded-full border border-neutral-800 bg-neutral-950 px-6 py-2 hover:bg-neutral-800",
+        "focus:ring-2 focus:ring-white/10 focus:ring-offset-2 focus:ring-offset-black",
+        "disabled:bg-neutral-950 disabled:opacity-60",
       )}
       disabled={animate !== "none"}
     >

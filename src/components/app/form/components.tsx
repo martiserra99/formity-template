@@ -32,6 +32,7 @@ type Parameters = {
     description: string;
     fields: Value[];
     button: Value;
+    back?: Value;
   };
   button: {
     text: string;
@@ -71,7 +72,7 @@ const components: Components<Parameters> = {
       {render(children)}
     </Form>
   ),
-  formLayout: ({ heading, description, fields, button }, render) => (
+  formLayout: ({ heading, description, fields, button, back }, render) => (
     <FormLayout
       heading={heading}
       description={description}
@@ -79,6 +80,7 @@ const components: Components<Parameters> = {
         <Fragment key={index}>{render(field)}</Fragment>
       ))}
       button={render(button)}
+      back={back ? render(back) : undefined}
     />
   ),
   button: ({ text }) => <Button>{text}</Button>,
