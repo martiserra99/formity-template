@@ -1,4 +1,4 @@
-import { cn } from "@/utils";
+import BaseButton from "@/components/app/ui/button";
 
 import { useAnimate } from "../../animate";
 
@@ -8,16 +8,5 @@ interface ButtonProps {
 
 export default function Button({ children }: ButtonProps) {
   const { animate } = useAnimate();
-  return (
-    <button
-      className={cn(
-        "block w-full rounded-full bg-indigo-500 px-6 py-4 text-white hover:bg-indigo-400",
-        "focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-black",
-        "disabled:bg-indigo-500 disabled:opacity-60",
-      )}
-      disabled={animate !== "none"}
-    >
-      {children}
-    </button>
-  );
+  return <BaseButton disabled={animate !== "none"}>{children}</BaseButton>;
 }
