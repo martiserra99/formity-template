@@ -13,6 +13,7 @@ import Form from "./components/form";
 import FormLayout from "./components/form-layout";
 import Button from "@/components/app/form/components/buttons/button";
 import Back from "@/components/app/form/components/buttons/back";
+import Row from "./components/row";
 import TextField from "./components/fields/text-field";
 import NumberField from "./components/fields/number-field";
 import Listbox from "./components/fields/listbox";
@@ -40,6 +41,9 @@ type Parameters = {
   };
   back: {
     onBack: OnBack;
+  };
+  row: {
+    items: Value[];
   };
   textField: {
     name: string;
@@ -96,6 +100,13 @@ const components: Components<Parameters> = {
   ),
   button: ({ text }) => <Button>{text}</Button>,
   back: ({ onBack }) => <Back onBack={onBack} />,
+  row: ({ items }, render) => (
+    <Row
+      items={items.map((item, index) => (
+        <Fragment key={index}>{render(item)}</Fragment>
+      ))}
+    />
+  ),
   textField: ({ name, label }) => <TextField name={name} label={label} />,
   numberField: ({ name, label }) => <NumberField name={name} label={label} />,
   listbox: ({ name, label, options }) => (

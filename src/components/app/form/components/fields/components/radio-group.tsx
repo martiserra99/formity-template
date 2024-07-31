@@ -16,14 +16,7 @@ interface RadioGroupProps {
   error: { message: string } | undefined;
 }
 
-export default function RadioGroup({
-  label,
-  value,
-  onChange,
-  options,
-  direction,
-  error,
-}: RadioGroupProps) {
+export default function RadioGroup({ label, value, onChange, options, direction, error }: RadioGroupProps) {
   const id = useId();
   return (
     <Field id={id} label={label} error={error}>
@@ -40,7 +33,7 @@ export default function RadioGroup({
             as={Radio}
             props={{ value: option.value }}
             className={cn(
-              "group flex cursor-default items-center gap-2 focus:outline-none data-[checked]:border-neutral-500",
+              "group flex cursor-pointer items-center gap-2 focus:outline-none data-[checked]:border-neutral-500",
               { "border-red-500 data-[checked]:border-red-500": error },
             )}
           >

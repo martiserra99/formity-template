@@ -15,14 +15,7 @@ interface CheckboxGroupProps {
   error: { message: string } | undefined;
 }
 
-export default function CheckboxGroup({
-  label,
-  value,
-  onChange,
-  options,
-  direction,
-  error,
-}: CheckboxGroupProps) {
+export default function CheckboxGroup({ label, value, onChange, options, direction, error }: CheckboxGroupProps) {
   const id = useId();
   return (
     <Field id={id} label={label} error={error}>
@@ -40,24 +33,23 @@ export default function CheckboxGroup({
               value: option.value,
               onClick: () => {
                 if (value.includes(option.value)) {
-                  onChange(value.filter((v) => v !== option.value));
+                  onChange(value.filter((v) => v !== option.value).sort());
                 } else {
-                  onChange([...value, option.value]);
+                  onChange([...value, option.value].sort());
                 }
               },
             }}
             className={cn(
-              "group flex cursor-default items-center gap-2 focus:outline-none",
+              "group flex cursor-pointer items-center gap-2 focus:outline-none",
               { "border-neutral-500": value.includes(option.value) },
               { "border-red-500": error },
             )}
           >
             {option.label}
             <CheckIcon
-              className={cn(
-                "pointer-events-none ml-auto size-5 fill-white/50",
-                { "fill-white/100": value.includes(option.value) },
-              )}
+              className={cn("pointer-events-none ml-auto size-5 fill-white/50", {
+                "fill-white/100": value.includes(option.value),
+              })}
             />
           </Input>
         ))}
