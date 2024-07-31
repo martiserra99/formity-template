@@ -74,7 +74,7 @@ export default function Listbox({
           ))}
         </ListboxOptions>
       </HeadlessListbox>
-      {error && <p className="ml-6 text-sm text-red-500">{error.message}</p>}
+      {error && <p className="ml-7 text-sm text-red-500">{error.message}</p>}
     </div>
   );
 }

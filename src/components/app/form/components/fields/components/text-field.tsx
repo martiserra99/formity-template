@@ -49,7 +49,7 @@ export default function TextField({
           <span className="relative z-10">{label}</span>
         </label>
       </div>
-      {error && <p className="ml-6 text-sm text-red-500">{error.message}</p>}
+      {error && <p className="ml-7 text-sm text-red-500">{error.message}</p>}
     </div>
   );
 }
