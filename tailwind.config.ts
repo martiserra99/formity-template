@@ -12,10 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          "var(--font-plus-jakarta-sans)",
-          ...defaultTheme.fontFamily.sans,
-        ],
+        sans: ["var(--font-plus-jakarta-sans)", ...defaultTheme.fontFamily.sans],
         mono: ["var(--font-spline-sans-mono)", ...defaultTheme.fontFamily.mono],
       },
     },
