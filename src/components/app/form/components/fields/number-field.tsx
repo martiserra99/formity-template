@@ -1,13 +1,13 @@
 import { useFormContext, Controller } from "react-hook-form";
 
-import BaseTextField from "./components/text-field";
+import TextField from "./components/text-field";
 
 interface NumberFieldProps {
   name: string;
-  placeholder?: string;
+  label: string;
 }
 
-export default function NumberField({ name, placeholder }: NumberFieldProps) {
+export default function NumberField({ name, label }: NumberFieldProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -15,12 +15,14 @@ export default function NumberField({ name, placeholder }: NumberFieldProps) {
       control={control}
       name={name}
       render={({ field }) => (
-        <BaseTextField
+        <TextField
           type="number"
           name={name}
+          label={label}
           value={String(field.value)}
-          onChange={(value) => field.onChange(Number(value))}
-          placeholder={placeholder}
+          onChange={(value) =>
+            field.onChange(value === "" ? null : Number(value))
+          }
           error={error}
         />
       )}

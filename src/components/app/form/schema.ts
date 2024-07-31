@@ -20,7 +20,6 @@ const schema: Schema = [
           onNext: "$onNext",
           children: {
             formLayout: {
-              label: "Formity",
               heading: "What is your name?",
               description: "Tell us your name",
               fields: [
@@ -56,22 +55,21 @@ const schema: Schema = [
           onNext: "$onNext",
           children: {
             formLayout: {
-              back: {
-                back: { onBack: "$onBack" },
-              },
-              label: "Formity",
               heading: "What is your age?",
               description: "Tell us your age",
               fields: [
                 {
                   numberField: {
                     name: "age",
-                    placeholder: "Enter your age",
+                    label: "Age",
                   },
                 },
               ],
               button: {
                 button: { text: "Next" },
+              },
+              back: {
+                back: { onBack: "$onBack" },
               },
             },
           },

@@ -46,7 +46,7 @@ type Parameters = {
   };
   numberField: {
     name: string;
-    placeholder: string;
+    label: string;
   };
   listbox: {
     name: string;
@@ -86,9 +86,7 @@ const components: Components<Parameters> = {
   button: ({ text }) => <Button>{text}</Button>,
   back: ({ onBack }) => <Back onBack={onBack} />,
   textField: ({ name, label }) => <TextField name={name} label={label} />,
-  numberField: ({ name, placeholder }) => (
-    <NumberField name={name} placeholder={placeholder} />
-  ),
+  numberField: ({ name, label }) => <NumberField name={name} label={label} />,
   listbox: ({ name, options }) => <Listbox name={name} options={options} />,
   yesNo: ({ name }) => <YesNo name={name} />,
   select: ({ name, options }) => <Select name={name} options={options} />,
