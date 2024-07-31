@@ -15,7 +15,7 @@ export default function FormLayout({ heading, description, fields, button, back 
         <div className="mb-4 space-y-4">{fields}</div>
         {button}
       </div>
-      {back && <div className="absolute left-3 top-3">{back}</div>}
+      {back && <div className="absolute left-4 top-5">{back}</div>}
     </div>
   );
 }
