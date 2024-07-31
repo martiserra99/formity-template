@@ -40,7 +40,7 @@ export default function RadioGroup({
               value={option.value}
               className={cn(
                 "group flex w-full items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white",
-                "focus:border-neutral-600 focus:ring-transparent data-[focus]:border-neutral-600 data-[focus]:ring-transparent",
+                "focus:border-neutral-600 focus:outline-none focus:ring-transparent data-[focus]:border-neutral-600 data-[focus]:ring-transparent",
                 "data-[checked]:border-neutral-500",
                 {
                   "border-red-500 focus:border-red-500 data-[focus]:ring-red-500":

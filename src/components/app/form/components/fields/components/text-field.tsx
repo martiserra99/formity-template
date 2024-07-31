@@ -32,7 +32,7 @@ export default function TextField({
           placeholder={label}
           className={cn(
             "peer block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white placeholder-transparent",
-            "focus:border-neutral-600 focus:ring-transparent",
+            "focus:border-neutral-600 focus:outline-none focus:ring-transparent",
             { "border-red-500 focus:border-red-500": error },
           )}
         />

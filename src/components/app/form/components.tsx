@@ -59,7 +59,9 @@ type Parameters = {
   };
   select: {
     name: string;
+    label: string;
     options: { value: string; label: string }[];
+    direction: "horizontal" | "vertical";
   };
 };
 
@@ -93,7 +95,9 @@ const components: Components<Parameters> = {
     <Listbox name={name} label={label} options={options} />
   ),
   yesNo: ({ name, label }) => <YesNo name={name} label={label} />,
-  select: ({ name, options }) => <Select name={name} options={options} />,
+  select: ({ name, label, options, direction }) => (
+    <Select name={name} label={label} options={options} direction={direction} />
+  ),
 };
 
 export default components;

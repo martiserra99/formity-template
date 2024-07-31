@@ -173,18 +173,19 @@ const schema: Schema = [
               back: {
                 back: { onBack: "$onBack" },
               },
-              label: "Formity",
               heading: "Where do you live?",
               description: "Tell us if you like music",
               fields: [
                 {
                   select: {
                     name: "country",
+                    label: "Country",
                     options: [
                       { value: "spain", label: "Spain" },
                       { value: "france", label: "France" },
                       { value: "germany", label: "Germany" },
                     ],
+                    direction: "vertical",
                   },
                 },
               ],

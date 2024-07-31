@@ -4,10 +4,17 @@ import RadioGroup from "./components/radio-group";
 
 interface SelectProps {
   name: string;
+  label: string;
   options: { value: string; label: string }[];
+  direction: "horizontal" | "vertical";
 }
 
-export default function Select({ name, options }: SelectProps) {
+export default function Select({
+  name,
+  label,
+  options,
+  direction,
+}: SelectProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -16,10 +23,11 @@ export default function Select({ name, options }: SelectProps) {
       name={name}
       render={({ field }) => (
         <RadioGroup
-          options={options}
+          label={label}
           value={field.value}
           onChange={field.onChange}
-          direction="vertical"
+          options={options}
+          direction={direction}
           error={error}
         />
       )}
