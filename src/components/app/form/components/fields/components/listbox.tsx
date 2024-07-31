@@ -32,7 +32,7 @@ export default function Listbox({
         <div className="relative">
           <ListboxButton
             className={cn(
-              "peer relative block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white placeholder-transparent",
+              "peer flex w-full items-center gap-2 rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white",
               "focus:border-neutral-600 focus:ring-transparent data-[active]:border-neutral-600 data-[active]:ring-transparent",
               {
                 "border-red-500 focus:border-red-500 data-[active]:border-red-500":
@@ -42,7 +42,7 @@ export default function Listbox({
           >
             {option.label}
             <ChevronDownIcon
-              className="pointer-events-none absolute right-3 top-1/2 size-6 -translate-y-1/2 fill-white/50"
+              className="pointer-events-none ml-auto size-6 fill-white/50"
               aria-hidden="true"
             />
           </ListboxButton>

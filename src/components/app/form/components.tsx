@@ -55,6 +55,7 @@ type Parameters = {
   };
   yesNo: {
     name: string;
+    label: string;
   };
   select: {
     name: string;
@@ -91,7 +92,7 @@ const components: Components<Parameters> = {
   listbox: ({ name, label, options }) => (
     <Listbox name={name} label={label} options={options} />
   ),
-  yesNo: ({ name }) => <YesNo name={name} />,
+  yesNo: ({ name, label }) => <YesNo name={name} label={label} />,
   select: ({ name, options }) => <Select name={name} options={options} />,
 };
 

@@ -9,9 +9,10 @@ const options = [
 
 interface YesNoProps {
   name: string;
+  label: string;
 }
 
-export default function YesNo({ name }: YesNoProps) {
+export default function YesNo({ name, label }: YesNoProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -20,9 +21,10 @@ export default function YesNo({ name }: YesNoProps) {
       name={name}
       render={({ field }) => (
         <RadioGroup
-          options={options}
+          label={label}
           value={field.value ? "yes" : "no"}
           onChange={(value) => field.onChange(value === "yes" ? true : false)}
+          options={options}
           direction="horizontal"
           error={error}
         />

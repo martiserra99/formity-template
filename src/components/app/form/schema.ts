@@ -137,13 +137,13 @@ const schema: Schema = [
               back: {
                 back: { onBack: "$onBack" },
               },
-              label: "Formity",
               heading: "Do you like music?",
               description: "Tell us if you like music",
               fields: [
                 {
                   yesNo: {
                     name: "music",
+                    label: "Music",
                   },
                 },
               ],
