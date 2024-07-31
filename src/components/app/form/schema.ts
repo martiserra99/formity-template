@@ -27,7 +27,7 @@ const schema: Schema = [
                 {
                   textField: {
                     name: "name",
-                    placeholder: "Enter your name",
+                    label: "Name",
                   },
                 },
               ],

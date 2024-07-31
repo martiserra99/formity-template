@@ -43,7 +43,7 @@ type Parameters = {
   };
   textField: {
     name: string;
-    placeholder: string;
+    label: string;
   };
   numberField: {
     name: string;
@@ -90,9 +90,7 @@ const components: Components<Parameters> = {
   ),
   button: ({ text }) => <Button>{text}</Button>,
   back: ({ onBack }) => <Back onBack={onBack} />,
-  textField: ({ name, placeholder }) => (
-    <TextField name={name} placeholder={placeholder} />
-  ),
+  textField: ({ name, label }) => <TextField name={name} label={label} />,
   numberField: ({ name, placeholder }) => (
     <NumberField name={name} placeholder={placeholder} />
   ),

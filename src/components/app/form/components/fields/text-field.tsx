@@ -4,10 +4,10 @@ import BaseTextField from "./components/text-field";
 
 interface TextFieldProps {
   name: string;
-  placeholder?: string;
+  label: string;
 }
 
-export default function TextField({ name, placeholder }: TextFieldProps) {
+export default function TextField({ name, label }: TextFieldProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -18,9 +18,9 @@ export default function TextField({ name, placeholder }: TextFieldProps) {
         <BaseTextField
           type="text"
           name={name}
+          label={label}
           value={field.value}
           onChange={field.onChange}
-          placeholder={placeholder}
           error={error}
         />
       )}
