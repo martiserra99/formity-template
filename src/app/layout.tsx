@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import {
-  Plus_Jakarta_Sans,
-  Spline_Sans_Mono,
-  Chakra_Petch,
-} from "next/font/google";
+import { Plus_Jakarta_Sans, Spline_Sans_Mono, Chakra_Petch } from "next/font/google";
+
 import { cn } from "@/utils";
 
 import "./globals.css";
@@ -45,12 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(
-        "h-full antialiased",
-        plusJakartaSans.variable,
-        splineSansMono.variable,
-        chakraPetch.variable,
-      )}
+      className={cn("antialiased", plusJakartaSans.variable, splineSansMono.variable, chakraPetch.variable)}
     >
       <body className="min-h-screen bg-black">{children}</body>
     </html>
