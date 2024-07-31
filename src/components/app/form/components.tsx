@@ -28,10 +28,8 @@ type Parameters = {
     children: Value;
   };
   formLayout: {
-    back?: Value;
-    label?: string;
     heading: string;
-    description?: string;
+    description: string;
     fields: Value[];
     button: Value;
   };
@@ -73,13 +71,8 @@ const components: Components<Parameters> = {
       {render(children)}
     </Form>
   ),
-  formLayout: (
-    { back, label, heading, description, fields, button },
-    render,
-  ) => (
+  formLayout: ({ heading, description, fields, button }, render) => (
     <FormLayout
-      back={back ? render(back) : undefined}
-      label={label}
       heading={heading}
       description={description}
       fields={fields.map((field, index) => (

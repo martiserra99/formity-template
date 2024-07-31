@@ -1,15 +1,11 @@
 interface FormLayoutProps {
-  back?: React.ReactNode;
-  label?: string;
   heading: string;
-  description?: string;
+  description: string;
   fields: React.ReactNode[];
   button: React.ReactNode;
 }
 
 export default function FormLayout({
-  back,
-  label,
   heading,
   description,
   fields,
@@ -18,15 +14,13 @@ export default function FormLayout({
   return (
     <div className="flex h-screen w-full items-center justify-center p-8">
       <div className="w-full max-w-md">
-        {back && <div className="mb-6">{back}</div>}
-        {label && (
-          <p className="mb-1 text-sm font-medium text-indigo-400">{label}</p>
-        )}
-        <h1 className="text-2xl font-medium text-white">{heading}</h1>
-        {description && (
-          <p className="mt-1 text-base text-neutral-500">{description}</p>
-        )}
-        <div className="mb-4 mt-4 space-y-4">{fields}</div>
+        <h1 className="mb-3 text-center text-3xl font-medium text-white">
+          {heading}
+        </h1>
+        <p className="mb-6 text-center text-base text-neutral-500">
+          {description}
+        </p>
+        <div className="mb-4 space-y-4">{fields}</div>
         {button}
       </div>
     </div>
