@@ -18,7 +18,7 @@ export default function Result({ result, onRestart }: ResultProps) {
         <div className="max-h-96 w-full overflow-auto rounded-3xl border border-neutral-800 bg-neutral-950 p-3">
           <Highlight code={JSON.stringify(result, null, 2)} language="jsx" theme={{ plain: {}, styles: [] }}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <pre className={cn(className, "flex overflow-x-auto font-mono")} style={style}>
+              <pre className={cn(className, "flex overflow-x-auto font-mono leading-[170%]")} style={style}>
                 <code className="px-4">
                   {tokens.map((line, lineIndex) => (
                     <div key={lineIndex} {...getLineProps({ line })}>
