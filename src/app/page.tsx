@@ -2,6 +2,7 @@ import Frame from "@/components/frame";
 import AppFrame from "@/components/apps/frame";
 
 import Container from "@/components/container";
+import AppFeature from "@/components/apps/feature";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
       </div>
       <div className="mx-auto max-w-6xl px-8 py-16">
         <Container>
-          <AppFrame />
+          <AppFeature />
         </Container>
       </div>
     </>
