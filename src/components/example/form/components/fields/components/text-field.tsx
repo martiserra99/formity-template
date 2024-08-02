@@ -2,21 +2,10 @@ import { ChangeEvent, useId } from "react";
 
 import { cn } from "@/utils";
 
-import Field from "@/components/app/ui/field";
-import Input from "@/components/app/ui/input";
-
-const sizes = {
-  label: {
-    md: cn(
-      "peer-placeholder-shown:text-sm peer-focus:-top-[9px] peer-focus:text-xs",
-      "sm:peer-placeholder-shown:text-base sm:peer-focus:-top-[11px] sm:peer-focus:text-sm",
-    ),
-    sm: cn("peer-placeholder-shown:text-sm peer-focus:-top-[9px] peer-focus:text-xs"),
-  },
-};
+import Field from "@/components/example/ui/field";
+import Input from "@/components/example/ui/input";
 
 interface TextFieldProps {
-  size: "md" | "sm";
   type: string;
   label: string;
   value: string;
@@ -24,21 +13,20 @@ interface TextFieldProps {
   error: { message: string } | undefined;
 }
 
-export default function TextField({ size, type, label, value, onChange, error }: TextFieldProps) {
+export default function TextField({ type, label, value, onChange, error }: TextFieldProps) {
   const id = useId();
   return (
     <Field
-      size={size}
       id={id}
       label={label}
       labelClassName={cn(
         "peer-placeholder-shown:top-[17px] peer-placeholder-shown:before:bg-transparent peer-focus:before:bg-neutral-950",
-        sizes.label[size],
+        "peer-placeholder-shown:text-sm peer-focus:-top-[9px] peer-focus:text-xs",
+        "sm:peer-placeholder-shown:text-base sm:peer-focus:-top-[11px] sm:peer-focus:text-sm",
       )}
       error={error}
     >
       <Input
-        size={size}
         as="input"
         props={{
           id: id,

@@ -7,12 +7,11 @@ import { cn } from "@/utils";
 import Button from "./ui/button";
 
 interface ResultProps {
-  size: "md" | "sm";
   result: Value;
   onRestart: () => void;
 }
 
-export default function Result({ size, result, onRestart }: ResultProps) {
+export default function Result({ result, onRestart }: ResultProps) {
   return (
     <div className="relative flex h-full w-full items-center justify-center p-8">
       <div className="w-full max-w-md space-y-4">
@@ -36,9 +35,7 @@ export default function Result({ size, result, onRestart }: ResultProps) {
             )}
           </Highlight>
         </div>
-        <Button size={size} onClick={onRestart}>
-          Start Again
-        </Button>
+        <Button onClick={onRestart}>Start Again</Button>
       </div>
     </div>
   );

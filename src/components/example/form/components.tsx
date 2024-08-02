@@ -75,11 +75,7 @@ type Parameters = {
 };
 
 const components: Components<Parameters> = {
-  screen: ({ progress, children }, render) => (
-    <Screen size="md" progress={progress}>
-      {render(children)}
-    </Screen>
-  ),
+  screen: ({ progress, children }, render) => <Screen progress={progress}>{render(children)}</Screen>,
   form: ({ step, defaultValues, resolver, onNext, children }, render) => (
     <Form step={step} defaultValues={defaultValues} resolver={resolver} onNext={onNext}>
       {render(children)}
@@ -87,7 +83,6 @@ const components: Components<Parameters> = {
   ),
   formLayout: ({ heading, description, fields, button, back }, render) => (
     <FormLayout
-      size="md"
       heading={heading}
       description={description}
       fields={fields.map((field, index) => (
@@ -97,8 +92,8 @@ const components: Components<Parameters> = {
       back={back ? render(back) : undefined}
     />
   ),
-  button: ({ text }) => <Button size="md">{text}</Button>,
-  back: ({ onBack }) => <Back size="md" onBack={onBack} />,
+  button: ({ text }) => <Button>{text}</Button>,
+  back: ({ onBack }) => <Back onBack={onBack} />,
   row: ({ items }, render) => (
     <Row
       items={items.map((item, index) => (
@@ -106,15 +101,15 @@ const components: Components<Parameters> = {
       ))}
     />
   ),
-  textField: ({ name, label }) => <TextField size="md" name={name} label={label} />,
-  numberField: ({ name, label }) => <NumberField size="md" name={name} label={label} />,
-  listbox: ({ name, label, options }) => <Listbox size="md" name={name} label={label} options={options} />,
-  yesNo: ({ name, label }) => <YesNo size="md" name={name} label={label} />,
+  textField: ({ name, label }) => <TextField name={name} label={label} />,
+  numberField: ({ name, label }) => <NumberField name={name} label={label} />,
+  listbox: ({ name, label, options }) => <Listbox name={name} label={label} options={options} />,
+  yesNo: ({ name, label }) => <YesNo name={name} label={label} />,
   select: ({ name, label, options, direction }) => (
-    <Select size="md" name={name} label={label} options={options} direction={direction} />
+    <Select name={name} label={label} options={options} direction={direction} />
   ),
   multiSelect: ({ name, label, options, direction }) => (
-    <MultiSelect size="md" name={name} label={label} options={options} direction={direction} />
+    <MultiSelect name={name} label={label} options={options} direction={direction} />
   ),
 };
 

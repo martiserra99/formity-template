@@ -4,18 +4,10 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 import { cn } from "@/utils";
 
-import Field from "@/components/app/ui/field";
-import Input from "@/components/app/ui/input";
-
-const sizes = {
-  icon: {
-    md: cn("size-4 sm:size-5"),
-    sm: cn("size-4"),
-  },
-};
+import Field from "@/components/example/ui/field";
+import Input from "@/components/example/ui/input";
 
 interface RadioGroupProps {
-  size: "md" | "sm";
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -24,10 +16,10 @@ interface RadioGroupProps {
   error: { message: string } | undefined;
 }
 
-export default function RadioGroup({ size, label, value, onChange, options, direction, error }: RadioGroupProps) {
+export default function RadioGroup({ label, value, onChange, options, direction, error }: RadioGroupProps) {
   const id = useId();
   return (
-    <Field size={size} id={id} label={label} error={error}>
+    <Field id={id} label={label} error={error}>
       <HeadlessRadioGroup
         value={value}
         onChange={onChange}
@@ -38,7 +30,6 @@ export default function RadioGroup({ size, label, value, onChange, options, dire
         {options.map((option) => (
           <Input
             key={option.value}
-            size={size}
             as={Radio}
             props={{ value: option.value }}
             className={cn(
@@ -47,12 +38,7 @@ export default function RadioGroup({ size, label, value, onChange, options, dire
             )}
           >
             {option.label}
-            <CheckIcon
-              className={cn(
-                "pointer-events-none ml-auto fill-white/50 group-data-[checked]:fill-white/100",
-                sizes.icon[size],
-              )}
-            />
+            <CheckIcon className="pointer-events-none ml-auto size-4 fill-white/50 group-data-[checked]:fill-white/100 sm:size-5" />
           </Input>
         ))}
       </HeadlessRadioGroup>
