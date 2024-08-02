@@ -1,7 +1,17 @@
+import { cn } from "@/utils";
+
+const sizes = {
+  row: {
+    md: cn("flex-col sm:flex-row"),
+    sm: cn("flex-col"),
+  },
+};
+
 interface RowProps {
+  size: "md" | "sm";
   items: React.ReactNode[];
 }
 
-export default function Row({ items }: RowProps) {
-  return <div className="flex flex-col gap-4 sm:flex-row">{items}</div>;
+export default function Row({ size, items }: RowProps) {
+  return <div className={cn("flex gap-4", sizes.row[size])}>{items}</div>;
 }

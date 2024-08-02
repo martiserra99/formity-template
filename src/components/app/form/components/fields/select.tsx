@@ -7,7 +7,7 @@ interface SelectProps {
   name: string;
   label: string;
   options: { value: string; label: string }[];
-  direction: "horizontal" | "vertical";
+  direction: "x" | "y";
 }
 
 export default function Select({ size, name, label, options, direction }: SelectProps) {

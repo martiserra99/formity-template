@@ -5,6 +5,16 @@ import { cn } from "@/utils";
 import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
+const sizes = {
+  label: {
+    md: cn(
+      "peer-placeholder-shown:text-sm peer-focus:-top-[9px] peer-focus:text-xs",
+      "sm:peer-placeholder-shown:text-base sm:peer-focus:-top-[11px] sm:peer-focus:text-sm",
+    ),
+    sm: cn("peer-placeholder-shown:text-sm peer-focus:-top-[9px] peer-focus:text-xs"),
+  },
+};
+
 interface TextFieldProps {
   size: "md" | "sm";
   type: string;
@@ -22,8 +32,8 @@ export default function TextField({ size, type, label, value, onChange, error }:
       id={id}
       label={label}
       labelClassName={cn(
-        "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:before:bg-transparent",
-        "peer-focus:-top-[9px] sm:peer-focus:-top-[11px] peer-focus:text-xs sm:peer-focus:text-sm peer-focus:before:bg-neutral-950",
+        "peer-placeholder-shown:top-[17px] peer-placeholder-shown:before:bg-transparent peer-focus:before:bg-neutral-950",
+        sizes.label[size],
       )}
       error={error}
     >

@@ -7,7 +7,7 @@ interface MultiSelectProps {
   name: string;
   label: string;
   options: { value: string; label: string }[];
-  direction: "horizontal" | "vertical";
+  direction: "x" | "y";
 }
 
 export default function MultiSelect({ size, name, label, options, direction }: MultiSelectProps) {

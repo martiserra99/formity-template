@@ -1,4 +1,26 @@
+import { cn } from "@/utils";
+
+const sizes = {
+  container: {
+    md: cn("p-6 sm:p-8"),
+    sm: cn("p-6"),
+  },
+  heading: {
+    md: cn("mb-2 text-2xl sm:mb-3 sm:text-3xl"),
+    sm: cn("mb-2 text-xl"),
+  },
+  description: {
+    md: cn("text-sm sm:text-base"),
+    sm: cn("text-sm"),
+  },
+  fields: {
+    md: cn("max-h-96"),
+    sm: cn("max-h-96"),
+  },
+};
+
 interface FormLayoutProps {
+  size: "md" | "sm";
   heading: string;
   description: string;
   fields: React.ReactNode[];
@@ -6,13 +28,13 @@ interface FormLayoutProps {
   back?: React.ReactNode;
 }
 
-export default function FormLayout({ heading, description, fields, button, back }: FormLayoutProps) {
+export default function FormLayout({ size, heading, description, fields, button, back }: FormLayoutProps) {
   return (
-    <div className="relative flex h-full w-full items-center justify-center p-6 sm:p-8">
+    <div className={cn("relative flex h-full w-full items-center justify-center", sizes.container[size])}>
       <div className="w-full max-w-md">
-        <h1 className="mb-2 text-center text-2xl font-medium text-white sm:mb-3 sm:text-3xl">{heading}</h1>
-        <p className="mb-6 text-center text-sm text-neutral-500 sm:text-base">{description}</p>
-        <div className="scrollbar-hide mb-4 max-h-96 overflow-auto">
+        <h1 className={cn("text-center font-medium text-white", sizes.heading[size])}>{heading}</h1>
+        <p className={cn("mb-6 text-center text-neutral-500", sizes.description[size])}>{description}</p>
+        <div className={cn("scrollbar-hide mb-4 overflow-auto", sizes.fields[size])}>
           <div className="space-y-4 pt-2">{fields}</div>
         </div>
         {button}

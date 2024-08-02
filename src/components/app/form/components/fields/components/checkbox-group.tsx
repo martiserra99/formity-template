@@ -6,13 +6,24 @@ import { cn } from "@/utils";
 import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
+const sizes = {
+  container: {
+    md: (direction: "x" | "y") => cn("flex-col", { "sm:flex-row": direction === "x" }),
+    sm: () => cn("flex-col"),
+  },
+  icon: {
+    md: cn("size-4 sm:size-5"),
+    sm: cn("size-4"),
+  },
+};
+
 interface CheckboxGroupProps {
   size: "md" | "sm";
   label: string;
   value: string[];
   onChange: (value: string[]) => void;
   options: { value: string; label: string }[];
-  direction: "horizontal" | "vertical";
+  direction: "x" | "y";
   error: { message: string } | undefined;
 }
 
@@ -20,11 +31,7 @@ export default function CheckboxGroup({ size, label, value, onChange, options, d
   const id = useId();
   return (
     <Field size={size} id={id} label={label} error={error}>
-      <div
-        className={cn("peer flex flex-col gap-4", {
-          "sm:flex-row": direction === "horizontal",
-        })}
-      >
+      <div className={cn("peer flex gap-4", sizes.container[size](direction))}>
         {options.map((option) => (
           <Input
             key={option.value}
@@ -42,14 +49,14 @@ export default function CheckboxGroup({ size, label, value, onChange, options, d
               },
             }}
             className={cn(
-              "group flex cursor-pointer items-center gap-2 text-sm focus:outline-none sm:text-base",
+              "group flex cursor-pointer items-center gap-2 focus:outline-none",
               { "border-neutral-500": value.includes(option.value) },
               { "border-red-500": error },
             )}
           >
             {option.label}
             <CheckIcon
-              className={cn("pointer-events-none ml-auto size-4 fill-white/50 sm:size-5", {
+              className={cn("pointer-events-none ml-auto fill-white/50", sizes.icon[size], {
                 "fill-white/100": value.includes(option.value),
               })}
             />

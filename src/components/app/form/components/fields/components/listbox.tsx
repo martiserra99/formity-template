@@ -7,6 +7,13 @@ import { cn } from "@/utils";
 import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
+const sizes = {
+  icon: {
+    md: cn("size-5 sm:size-6"),
+    sm: cn("size-5"),
+  },
+};
+
 interface ListboxProps {
   size: "md" | "sm";
   label: string;
@@ -30,7 +37,10 @@ export default function Listbox({ size, label, value, onChange, options, error }
           })}
         >
           {option.label}
-          <ChevronDownIcon className="pointer-events-none ml-auto size-5 fill-white/50 sm:size-6" aria-hidden="true" />
+          <ChevronDownIcon
+            className={cn("pointer-events-none ml-auto fill-white/50", sizes.icon[size])}
+            aria-hidden="true"
+          />
         </Input>
         <ListboxOptions
           anchor="bottom"

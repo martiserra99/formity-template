@@ -64,18 +64,22 @@ type Parameters = {
     name: string;
     label: string;
     options: { value: string; label: string }[];
-    direction: "horizontal" | "vertical";
+    direction: "x" | "y";
   };
   multiSelect: {
     name: string;
     label: string;
     options: { value: string; label: string }[];
-    direction: "horizontal" | "vertical";
+    direction: "x" | "y";
   };
 };
 
 const components: Components<Parameters> = {
-  screen: ({ progress, children }, render) => <Screen progress={progress}>{render(children)}</Screen>,
+  screen: ({ progress, children }, render) => (
+    <Screen size="md" progress={progress}>
+      {render(children)}
+    </Screen>
+  ),
   form: ({ step, defaultValues, resolver, onNext, children }, render) => (
     <Form step={step} defaultValues={defaultValues} resolver={resolver} onNext={onNext}>
       {render(children)}
@@ -83,6 +87,7 @@ const components: Components<Parameters> = {
   ),
   formLayout: ({ heading, description, fields, button, back }, render) => (
     <FormLayout
+      size="md"
       heading={heading}
       description={description}
       fields={fields.map((field, index) => (
@@ -96,6 +101,7 @@ const components: Components<Parameters> = {
   back: ({ onBack }) => <Back size="md" onBack={onBack} />,
   row: ({ items }, render) => (
     <Row
+      size="md"
       items={items.map((item, index) => (
         <Fragment key={index}>{render(item)}</Fragment>
       ))}

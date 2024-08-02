@@ -7,13 +7,24 @@ import { cn } from "@/utils";
 import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
+const sizes = {
+  container: {
+    md: (direction: "x" | "y") => cn("flex-col", { "sm:flex-row": direction === "x" }),
+    sm: () => cn("flex-col"),
+  },
+  icon: {
+    md: cn("size-4 sm:size-5"),
+    sm: cn("size-4"),
+  },
+};
+
 interface RadioGroupProps {
   size: "md" | "sm";
   label: string;
   value: string;
   onChange: (value: string) => void;
   options: { value: string; label: string }[];
-  direction: "horizontal" | "vertical";
+  direction: "x" | "y";
   error: { message: string } | undefined;
 }
 
@@ -24,9 +35,7 @@ export default function RadioGroup({ size, label, value, onChange, options, dire
       <HeadlessRadioGroup
         value={value}
         onChange={onChange}
-        className={cn("peer flex flex-col gap-4", {
-          "sm:flex-row": direction === "horizontal",
-        })}
+        className={cn("peer flex gap-4", sizes.container[size](direction))}
       >
         {options.map((option) => (
           <Input
@@ -40,7 +49,12 @@ export default function RadioGroup({ size, label, value, onChange, options, dire
             )}
           >
             {option.label}
-            <CheckIcon className="pointer-events-none ml-auto size-4 fill-white/50 group-data-[checked]:fill-white/100 sm:size-5" />
+            <CheckIcon
+              className={cn(
+                "pointer-events-none ml-auto fill-white/50 group-data-[checked]:fill-white/100",
+                sizes.icon[size],
+              )}
+            />
           </Input>
         ))}
       </HeadlessRadioGroup>

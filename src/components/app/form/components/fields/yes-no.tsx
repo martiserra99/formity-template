@@ -27,7 +27,7 @@ export default function YesNo({ size, name, label }: YesNoProps) {
           value={field.value ? "yes" : "no"}
           onChange={(value) => field.onChange(value === "yes" ? true : false)}
           options={options}
-          direction="horizontal"
+          direction="x"
           error={error}
         />
       )}

@@ -1,13 +1,23 @@
 import { motion } from "framer-motion";
 
+import { cn } from "@/utils";
+
+const sizes = {
+  container: {
+    md: cn("min-h-[800px"),
+    sm: cn("min-h-[800px]"),
+  },
+};
+
 interface ScreenProps {
+  size: "md" | "sm";
   progress: { total: number; current: number };
   children: React.ReactNode;
 }
 
-export default function Screen({ progress, children }: ScreenProps) {
+export default function Screen({ size, progress, children }: ScreenProps) {
   return (
-    <div className="relative h-screen min-h-[800px] w-full">
+    <div className={cn("relative h-screen w-full", sizes.container[size])}>
       <Progress total={progress.total} current={progress.current} />
       {children}
     </div>
