@@ -6,9 +6,9 @@ import { ReactElement, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import Form from "./form";
-import Result from "./result";
+import Data from "./data";
 
-export default function App() {
+export default function AppFrame() {
   const [result, setResult] = useState<Value | null>(null);
 
   function handleReturn(result: Value) {
@@ -27,7 +27,7 @@ export default function App() {
         transition={{ duration: 0.5 }}
         className="h-full"
       >
-        <Result result={result} onRestart={() => setResult(null)} />
+        <Data data={result} onStart={() => setResult(null)} />
       </motion.div>
     );
   } else {

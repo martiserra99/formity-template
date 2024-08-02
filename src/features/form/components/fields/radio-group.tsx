@@ -4,8 +4,8 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 import { cn } from "@/utils";
 
-import Field from "@/components/app/ui/field";
-import Input from "@/components/app/ui/input";
+import Field from "../user-interface/field";
+import Input from "../user-interface/input";
 
 interface RadioGroupProps {
   label: string;

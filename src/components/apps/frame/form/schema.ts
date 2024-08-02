@@ -63,7 +63,7 @@ const schema: Schema = [
                     },
                   ],
                   button: {
-                    button: { text: "Next" },
+                    next: { text: "Next" },
                   },
                 },
               },
@@ -101,7 +101,7 @@ const schema: Schema = [
                     },
                   ],
                   button: {
-                    button: { text: "Next" },
+                    next: { text: "Next" },
                   },
                   back: {
                     back: { onBack: "$onBack" },
@@ -163,7 +163,7 @@ const schema: Schema = [
                           },
                         ],
                         button: {
-                          button: { text: "Next" },
+                          next: { text: "Next" },
                         },
                         back: {
                           back: { onBack: "$onBack" },
@@ -233,7 +233,7 @@ const schema: Schema = [
                                 },
                               ],
                               button: {
-                                button: { text: "Next" },
+                                next: { text: "Next" },
                               },
                               back: {
                                 back: { onBack: "$onBack" },
@@ -300,7 +300,7 @@ const schema: Schema = [
                           },
                         ],
                         button: {
-                          button: { text: "Next" },
+                          next: { text: "Next" },
                         },
                         back: {
                           back: { onBack: "$onBack" },

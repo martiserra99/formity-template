@@ -2,8 +2,8 @@ import { ChangeEvent, useId } from "react";
 
 import { cn } from "@/utils";
 
-import Field from "@/components/app/ui/field";
-import Input from "@/components/app/ui/input";
+import Field from "@/features/form/old-components/field";
+import Input from "@/features/form/old-components/input";
 
 interface TextFieldProps {
   type: string;

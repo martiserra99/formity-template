@@ -2,10 +2,8 @@ import { Fragment } from "react";
 import { Components, Step, DefaultValues, Resolver, OnNext, OnBack } from "formity";
 import { Value } from "expry";
 
-import Screen from "./components/screen";
 import Form from "./components/form";
-import FormLayout from "./components/form-layout";
-import Button from "./components/buttons/button";
+import Next from "./components/buttons/button";
 import Back from "./components/buttons/back";
 import Row from "./components/row";
 import TextField from "./components/fields/text-field";
@@ -15,24 +13,13 @@ import YesNo from "./components/fields/yes-no";
 import Select from "./components/fields/select";
 import MultiSelect from "./components/fields/multi-select";
 
-type Parameters = {
-  screen: {
-    progress: { total: number; current: number };
-    children: Value;
-  };
+export type Parameters = {
   form: {
     step: Step;
     defaultValues: DefaultValues;
     resolver: Resolver;
     onNext: OnNext;
     children: Value;
-  };
-  formLayout: {
-    heading: string;
-    description: string;
-    fields: Value[];
-    button: Value;
-    back?: Value;
   };
   button: {
     text: string;
@@ -75,24 +62,12 @@ type Parameters = {
 };
 
 const components: Components<Parameters> = {
-  screen: ({ progress, children }, render) => <Screen progress={progress}>{render(children)}</Screen>,
   form: ({ step, defaultValues, resolver, onNext, children }, render) => (
     <Form step={step} defaultValues={defaultValues} resolver={resolver} onNext={onNext}>
       {render(children)}
     </Form>
   ),
-  formLayout: ({ heading, description, fields, button, back }, render) => (
-    <FormLayout
-      heading={heading}
-      description={description}
-      fields={fields.map((field, index) => (
-        <Fragment key={index}>{render(field)}</Fragment>
-      ))}
-      button={render(button)}
-      back={back ? render(back) : undefined}
-    />
-  ),
-  button: ({ text }) => <Button>{text}</Button>,
+  button: ({ text }) => <Next>{text}</Next>,
   back: ({ onBack }) => <Back onBack={onBack} />,
   row: ({ items }, render) => (
     <Row
