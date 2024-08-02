@@ -3,5 +3,5 @@ interface RowProps {
 }
 
 export default function Row({ items }: RowProps) {
-  return <div className="flex flex-row gap-2">{items}</div>;
+  return <div className="flex flex-col gap-4 sm:flex-row">{items}</div>;
 }

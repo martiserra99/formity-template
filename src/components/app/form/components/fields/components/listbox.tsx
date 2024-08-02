@@ -1,10 +1,5 @@
 import { useId } from "react";
-import {
-  Listbox as HeadlessListbox,
-  ListboxButton,
-  ListboxOption,
-  ListboxOptions,
-} from "@headlessui/react";
+import { Listbox as HeadlessListbox, ListboxButton, ListboxOption, ListboxOptions } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
 import { cn } from "@/utils";
@@ -20,13 +15,7 @@ interface ListboxProps {
   error: { message: string } | undefined;
 }
 
-export default function Listbox({
-  label,
-  value,
-  onChange,
-  options,
-  error,
-}: ListboxProps) {
+export default function Listbox({ label, value, onChange, options, error }: ListboxProps) {
   const id = useId();
   const option = options.find((option) => option.value === value)!;
   return (
@@ -34,16 +23,12 @@ export default function Listbox({
       <HeadlessListbox value={value} onChange={onChange}>
         <Input
           as={ListboxButton}
-          className={cn(
-            "flex items-center gap-2 focus:outline-none data-[active]:border-neutral-500",
-            { "border-red-500 data-[active]:border-red-500": error },
-          )}
+          className={cn("flex items-center gap-2 focus:outline-none data-[active]:border-neutral-500", {
+            "border-red-500 data-[active]:border-red-500": error,
+          })}
         >
           {option.label}
-          <ChevronDownIcon
-            className="pointer-events-none ml-auto size-6 fill-white/50"
-            aria-hidden="true"
-          />
+          <ChevronDownIcon className="pointer-events-none ml-auto size-5 fill-white/50 sm:size-6" aria-hidden="true" />
         </Input>
         <ListboxOptions
           anchor="bottom"

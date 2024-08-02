@@ -9,16 +9,11 @@ interface InputProps<T extends ElementType> {
   className?: React.ReactNode;
 }
 
-export default function Input<T extends ElementType>({
-  as: Component,
-  props,
-  children,
-  className,
-}: InputProps<T>) {
+export default function Input<T extends ElementType>({ as: Component, props, children, className }: InputProps<T>) {
   return (
     <Component
       className={cn(
-        "block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-base text-white",
+        "block w-full rounded-full border border-neutral-800 bg-neutral-950 px-7 py-4 text-left text-sm text-white sm:text-base",
         className,
       )}
       {...props}

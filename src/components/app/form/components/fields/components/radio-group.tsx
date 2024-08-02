@@ -24,7 +24,7 @@ export default function RadioGroup({ label, value, onChange, options, direction,
         value={value}
         onChange={onChange}
         className={cn("peer flex flex-col gap-4", {
-          "flex-row": direction === "horizontal",
+          "sm:flex-row": direction === "horizontal",
         })}
       >
         {options.map((option) => (
@@ -38,7 +38,7 @@ export default function RadioGroup({ label, value, onChange, options, direction,
             )}
           >
             {option.label}
-            <CheckIcon className="pointer-events-none ml-auto size-5 fill-white/50 group-data-[checked]:fill-white/100" />
+            <CheckIcon className="pointer-events-none ml-auto size-4 fill-white/50 group-data-[checked]:fill-white/100 sm:size-5" />
           </Input>
         ))}
       </HeadlessRadioGroup>

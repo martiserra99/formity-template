@@ -91,7 +91,7 @@ const schema: Schema = [
               children: {
                 formLayout: {
                   heading: "Are you a software developer?",
-                  description: "We would like to know if you are a software developer.",
+                  description: "We would like to know if you are a software developer",
                   fields: [
                     {
                       yesNo: {
@@ -289,7 +289,7 @@ const schema: Schema = [
                     children: {
                       formLayout: {
                         heading: "Would you be interested in learning how to code?",
-                        description: "Learning how to code can be a really useful skill.",
+                        description: "Learning how to code can be a really useful skill",
                         fields: [
                           {
                             listbox: {

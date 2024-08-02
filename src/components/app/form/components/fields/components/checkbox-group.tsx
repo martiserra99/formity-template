@@ -21,7 +21,7 @@ export default function CheckboxGroup({ label, value, onChange, options, directi
     <Field id={id} label={label} error={error}>
       <div
         className={cn("peer flex flex-col gap-4", {
-          "flex-row": direction === "horizontal",
+          "sm:flex-row": direction === "horizontal",
         })}
       >
         {options.map((option) => (
@@ -40,14 +40,14 @@ export default function CheckboxGroup({ label, value, onChange, options, directi
               },
             }}
             className={cn(
-              "group flex cursor-pointer items-center gap-2 focus:outline-none",
+              "group flex cursor-pointer items-center gap-2 text-sm focus:outline-none sm:text-base",
               { "border-neutral-500": value.includes(option.value) },
               { "border-red-500": error },
             )}
           >
             {option.label}
             <CheckIcon
-              className={cn("pointer-events-none ml-auto size-5 fill-white/50", {
+              className={cn("pointer-events-none ml-auto size-4 fill-white/50 sm:size-5", {
                 "fill-white/100": value.includes(option.value),
               })}
             />

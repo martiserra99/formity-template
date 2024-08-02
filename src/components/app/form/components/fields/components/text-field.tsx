@@ -13,21 +13,15 @@ interface TextFieldProps {
   error: { message: string } | undefined;
 }
 
-export default function TextField({
-  type,
-  label,
-  value,
-  onChange,
-  error,
-}: TextFieldProps) {
+export default function TextField({ type, label, value, onChange, error }: TextFieldProps) {
   const id = useId();
   return (
     <Field
       id={id}
       label={label}
       labelClassName={cn(
-        "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-base peer-placeholder-shown:before:bg-transparent",
-        "peer-focus:-top-[11px] peer-focus:text-sm peer-focus:before:bg-neutral-950",
+        "peer-placeholder-shown:top-[17px] peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:before:bg-transparent",
+        "peer-focus:-top-[9px] sm:peer-focus:-top-[11px] peer-focus:text-xs sm:peer-focus:text-sm peer-focus:before:bg-neutral-950",
       )}
       error={error}
     >

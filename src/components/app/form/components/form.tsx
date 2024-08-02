@@ -1,10 +1,4 @@
-import {
-  forwardRef,
-  ReactElement,
-  useState,
-  useCallback,
-  useMemo,
-} from "react";
+import { forwardRef, ReactElement, useState, useCallback, useMemo } from "react";
 import { AnimatePresence, motion, MotionProps } from "framer-motion";
 import { FormProvider, useForm } from "react-hook-form";
 import { Step, DefaultValues, Resolver, OnNext, Variables } from "formity";
@@ -19,22 +13,12 @@ interface FormProps {
   children: ReactElement;
 }
 
-export default function Form({
-  step,
-  defaultValues,
-  resolver,
-  onNext,
-  children,
-}: FormProps) {
+export default function Form({ step, defaultValues, resolver, onNext, children }: FormProps) {
   const [animate, setAnimate] = useState<Animate>("none");
   const value = useMemo(() => ({ animate, setAnimate }), [animate, setAnimate]);
   return (
     <AnimateContext.Provider value={value}>
-      <AnimatePresence
-        mode="popLayout"
-        initial={false}
-        onExitComplete={() => setAnimate("none")}
-      >
+      <AnimatePresence mode="popLayout" initial={false} onExitComplete={() => setAnimate("none")}>
         <MotionComponent
           key={step}
           defaultValues={defaultValues}
@@ -76,26 +60,27 @@ interface ComponentProps {
   children: ReactElement;
 }
 
-const Component = forwardRef<HTMLFormElement, ComponentProps>(
-  function Component({ defaultValues, resolver, onNext, children }, ref) {
-    const form = useForm({ defaultValues, resolver });
+const Component = forwardRef<HTMLFormElement, ComponentProps>(function Component(
+  { defaultValues, resolver, onNext, children },
+  ref,
+) {
+  const form = useForm({ defaultValues, resolver });
 
-    const { setAnimate } = useAnimate();
+  const { setAnimate } = useAnimate();
 
-    const handleSubmit = useCallback(
-      (formData: Variables) => {
-        setAnimate("next");
-        setTimeout(() => onNext(formData), 0);
-      },
-      [onNext, setAnimate],
-    );
+  const handleSubmit = useCallback(
+    (formData: Variables) => {
+      setAnimate("next");
+      setTimeout(() => onNext(formData), 0);
+    },
+    [onNext, setAnimate],
+  );
 
-    return (
-      <form ref={ref} onSubmit={form.handleSubmit(handleSubmit)}>
-        <FormProvider {...form}>{children}</FormProvider>
-      </form>
-    );
-  },
-);
+  return (
+    <form ref={ref} onSubmit={form.handleSubmit(handleSubmit)} className="h-full">
+      <FormProvider {...form}>{children}</FormProvider>
+    </form>
+  );
+});
 
 const MotionComponent = motion(Component);
