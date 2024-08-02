@@ -92,7 +92,7 @@ const components: Components<Parameters> = {
       back={back ? render(back) : undefined}
     />
   ),
-  button: ({ text }) => <Button>{text}</Button>,
+  button: ({ text }) => <Button size="normal">{text}</Button>,
   back: ({ onBack }) => <Back onBack={onBack} />,
   row: ({ items }, render) => (
     <Row
