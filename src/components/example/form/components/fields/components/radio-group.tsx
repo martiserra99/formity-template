@@ -38,7 +38,7 @@ export default function RadioGroup({ label, value, onChange, options, direction,
             )}
           >
             {option.label}
-            <CheckIcon className="pointer-events-none ml-auto size-4 fill-white/50 group-data-[checked]:fill-white/100 sm:size-5" />
+            <CheckIcon className="pointer-events-none ml-auto size-5 fill-white/50 group-data-[checked]:fill-white/100" />
           </Input>
         ))}
       </HeadlessRadioGroup>

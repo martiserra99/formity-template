@@ -16,8 +16,8 @@ export default function Field({ children, id, label, labelClassName, error }: Fi
         <label
           htmlFor={id}
           className={cn(
-            "absolute -top-[9px] left-[29px] block select-none text-xs text-neutral-500 transition-all sm:-top-[11px] sm:text-sm",
-            "before:absolute before:left-0 before:right-0 before:top-[9px] before:h-px before:bg-neutral-950 sm:before:top-[11px]",
+            "absolute -top-[11px] left-[29px] block select-none text-sm text-neutral-500 transition-all",
+            "before:absolute before:left-0 before:right-0 before:top-[11px] before:h-px before:bg-neutral-950",
             { "text-red-500": error },
             labelClassName,
           )}
@@ -25,7 +25,7 @@ export default function Field({ children, id, label, labelClassName, error }: Fi
           <span className="relative z-10">{label}</span>
         </label>
       </div>
-      {error && <p className="ml-7 text-xs text-red-500 sm:text-sm">{error.message}</p>}
+      {error && <p className="ml-7 text-sm text-red-500">{error.message}</p>}
     </div>
   );
 }

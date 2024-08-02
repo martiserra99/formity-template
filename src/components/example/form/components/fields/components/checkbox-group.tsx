@@ -47,7 +47,7 @@ export default function CheckboxGroup({ label, value, onChange, options, directi
           >
             {option.label}
             <CheckIcon
-              className={cn("pointer-events-none ml-auto size-4 fill-white/50 sm:size-5", {
+              className={cn("pointer-events-none ml-auto size-5 fill-white/50", {
                 "fill-white/100": value.includes(option.value),
               })}
             />

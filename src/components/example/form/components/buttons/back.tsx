@@ -31,7 +31,7 @@ export default function Back({ onBack }: BackProps) {
       )}
       disabled={animate !== "none"}
     >
-      <ChevronLeftIcon className="pointer-events-none size-4 fill-white sm:size-5" />
+      <ChevronLeftIcon className="pointer-events-none size-5 fill-white" />
     </button>
   );
 }

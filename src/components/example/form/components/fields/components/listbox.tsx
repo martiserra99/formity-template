@@ -28,7 +28,7 @@ export default function Listbox({ label, value, onChange, options, error }: List
           })}
         >
           {option.label}
-          <ChevronDownIcon className="pointer-events-none ml-auto size-5 fill-white/50 sm:size-6" aria-hidden="true" />
+          <ChevronDownIcon className="pointer-events-none ml-auto size-6 fill-white/50" aria-hidden="true" />
         </Input>
         <ListboxOptions
           anchor="bottom"
