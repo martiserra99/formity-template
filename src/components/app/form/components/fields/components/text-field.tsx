@@ -6,6 +6,7 @@ import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
 interface TextFieldProps {
+  size: "normal" | "small";
   type: string;
   label: string;
   value: string;
@@ -13,10 +14,11 @@ interface TextFieldProps {
   error: { message: string } | undefined;
 }
 
-export default function TextField({ type, label, value, onChange, error }: TextFieldProps) {
+export default function TextField({ size, type, label, value, onChange, error }: TextFieldProps) {
   const id = useId();
   return (
     <Field
+      size={size}
       id={id}
       label={label}
       labelClassName={cn(
@@ -26,6 +28,7 @@ export default function TextField({ type, label, value, onChange, error }: TextF
       error={error}
     >
       <Input
+        size={size}
         as="input"
         props={{
           id: id,

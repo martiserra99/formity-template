@@ -93,7 +93,7 @@ const components: Components<Parameters> = {
     />
   ),
   button: ({ text }) => <Button size="normal">{text}</Button>,
-  back: ({ onBack }) => <Back onBack={onBack} />,
+  back: ({ onBack }) => <Back size="normal" onBack={onBack} />,
   row: ({ items }, render) => (
     <Row
       items={items.map((item, index) => (
@@ -101,15 +101,15 @@ const components: Components<Parameters> = {
       ))}
     />
   ),
-  textField: ({ name, label }) => <TextField name={name} label={label} />,
-  numberField: ({ name, label }) => <NumberField name={name} label={label} />,
-  listbox: ({ name, label, options }) => <Listbox name={name} label={label} options={options} />,
-  yesNo: ({ name, label }) => <YesNo name={name} label={label} />,
+  textField: ({ name, label }) => <TextField size="normal" name={name} label={label} />,
+  numberField: ({ name, label }) => <NumberField size="normal" name={name} label={label} />,
+  listbox: ({ name, label, options }) => <Listbox size="normal" name={name} label={label} options={options} />,
+  yesNo: ({ name, label }) => <YesNo size="normal" name={name} label={label} />,
   select: ({ name, label, options, direction }) => (
-    <Select name={name} label={label} options={options} direction={direction} />
+    <Select size="normal" name={name} label={label} options={options} direction={direction} />
   ),
   multiSelect: ({ name, label, options, direction }) => (
-    <MultiSelect name={name} label={label} options={options} direction={direction} />
+    <MultiSelect size="normal" name={name} label={label} options={options} direction={direction} />
   ),
 };
 

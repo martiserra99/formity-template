@@ -8,6 +8,7 @@ import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
 interface ListboxProps {
+  size: "normal" | "small";
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -15,13 +16,14 @@ interface ListboxProps {
   error: { message: string } | undefined;
 }
 
-export default function Listbox({ label, value, onChange, options, error }: ListboxProps) {
+export default function Listbox({ size, label, value, onChange, options, error }: ListboxProps) {
   const id = useId();
   const option = options.find((option) => option.value === value)!;
   return (
-    <Field id={id} label={label} error={error}>
+    <Field size={size} id={id} label={label} error={error}>
       <HeadlessListbox value={value} onChange={onChange}>
         <Input
+          size={size}
           as={ListboxButton}
           className={cn("flex items-center gap-2 focus:outline-none data-[active]:border-neutral-500", {
             "border-red-500 data-[active]:border-red-500": error,

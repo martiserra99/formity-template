@@ -8,6 +8,7 @@ import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
 interface RadioGroupProps {
+  size: "normal" | "small";
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -16,10 +17,10 @@ interface RadioGroupProps {
   error: { message: string } | undefined;
 }
 
-export default function RadioGroup({ label, value, onChange, options, direction, error }: RadioGroupProps) {
+export default function RadioGroup({ size, label, value, onChange, options, direction, error }: RadioGroupProps) {
   const id = useId();
   return (
-    <Field id={id} label={label} error={error}>
+    <Field size={size} id={id} label={label} error={error}>
       <HeadlessRadioGroup
         value={value}
         onChange={onChange}
@@ -30,6 +31,7 @@ export default function RadioGroup({ label, value, onChange, options, direction,
         {options.map((option) => (
           <Input
             key={option.value}
+            size={size}
             as={Radio}
             props={{ value: option.value }}
             className={cn(

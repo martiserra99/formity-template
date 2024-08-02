@@ -1,8 +1,18 @@
-import { useId } from "react";
-
 import { cn } from "@/utils";
 
+const sizes = {
+  label: {
+    normal: "-top-[9px] text-xs before:top-[9px] sm:-top-[11px] sm:text-sm sm:before:top-[11px]",
+    small: "-top-[9px] text-xs before:top-[9px]",
+  },
+  error: {
+    normal: "text-xs sm:text-sm",
+    small: "text-xs",
+  },
+};
+
 interface FieldProps {
+  size: "normal" | "small";
   children: React.ReactNode;
   id: string;
   label: string;
@@ -10,7 +20,7 @@ interface FieldProps {
   error: { message: string } | undefined;
 }
 
-export default function Field({ children, id, label, labelClassName, error }: FieldProps) {
+export default function Field({ size, children, id, label, labelClassName, error }: FieldProps) {
   return (
     <div className="space-y-1">
       <div className="relative">
@@ -18,16 +28,17 @@ export default function Field({ children, id, label, labelClassName, error }: Fi
         <label
           htmlFor={id}
           className={cn(
-            "absolute -top-[9px] left-[29px] block select-none text-xs text-neutral-500 transition-all sm:-top-[11px] sm:left-[29px] sm:text-sm",
-            "before:absolute before:left-0 before:right-0 before:top-[9px] before:h-px before:bg-neutral-950 sm:before:top-[11px]",
+            "absolute left-[29px] block select-none text-neutral-500 transition-all",
+            "before:absolute before:left-0 before:right-0 before:h-px before:bg-neutral-950",
             { "text-red-500": error },
+            sizes.label[size],
             labelClassName,
           )}
         >
           <span className="relative z-10">{label}</span>
         </label>
       </div>
-      {error && <p className="ml-7 text-xs text-red-500 sm:text-sm">{error.message}</p>}
+      {error && <p className={cn("ml-7 text-red-500", sizes.error[size])}>{error.message}</p>}
     </div>
   );
 }

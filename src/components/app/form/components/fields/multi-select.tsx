@@ -3,18 +3,14 @@ import { useFormContext, Controller } from "react-hook-form";
 import CheckboxGroup from "./components/checkbox-group";
 
 interface MultiSelectProps {
+  size: "normal" | "small";
   name: string;
   label: string;
   options: { value: string; label: string }[];
   direction: "horizontal" | "vertical";
 }
 
-export default function MultiSelect({
-  name,
-  label,
-  options,
-  direction,
-}: MultiSelectProps) {
+export default function MultiSelect({ size, name, label, options, direction }: MultiSelectProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -23,6 +19,7 @@ export default function MultiSelect({
       name={name}
       render={({ field }) => (
         <CheckboxGroup
+          size={size}
           label={label}
           value={field.value}
           onChange={field.onChange}

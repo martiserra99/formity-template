@@ -7,6 +7,7 @@ import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
 interface CheckboxGroupProps {
+  size: "normal" | "small";
   label: string;
   value: string[];
   onChange: (value: string[]) => void;
@@ -15,10 +16,10 @@ interface CheckboxGroupProps {
   error: { message: string } | undefined;
 }
 
-export default function CheckboxGroup({ label, value, onChange, options, direction, error }: CheckboxGroupProps) {
+export default function CheckboxGroup({ size, label, value, onChange, options, direction, error }: CheckboxGroupProps) {
   const id = useId();
   return (
-    <Field id={id} label={label} error={error}>
+    <Field size={size} id={id} label={label} error={error}>
       <div
         className={cn("peer flex flex-col gap-4", {
           "sm:flex-row": direction === "horizontal",
@@ -27,6 +28,7 @@ export default function CheckboxGroup({ label, value, onChange, options, directi
         {options.map((option) => (
           <Input
             key={option.value}
+            size={size}
             as="button"
             props={{
               type: "button",

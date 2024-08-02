@@ -3,11 +3,12 @@ import { useFormContext, Controller } from "react-hook-form";
 import BaseTextField from "./components/text-field";
 
 interface TextFieldProps {
+  size: "normal" | "small";
   name: string;
   label: string;
 }
 
-export default function TextField({ name, label }: TextFieldProps) {
+export default function TextField({ size, name, label }: TextFieldProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -16,6 +17,7 @@ export default function TextField({ name, label }: TextFieldProps) {
       name={name}
       render={({ field }) => (
         <BaseTextField
+          size={size}
           type="text"
           label={label}
           value={field.value}

@@ -8,11 +8,19 @@ import { useAnimate } from "../../animate";
 
 import { cn } from "@/utils";
 
+const sizes = {
+  icon: {
+    normal: "size-4 sm:size-5",
+    small: "size-4",
+  },
+};
+
 interface BackProps {
+  size: "normal" | "small";
   onBack: OnBack;
 }
 
-export default function Back({ onBack }: BackProps) {
+export default function Back({ size, onBack }: BackProps) {
   const { getValues } = useFormContext();
   const { animate, setAnimate } = useAnimate();
 
@@ -31,7 +39,7 @@ export default function Back({ onBack }: BackProps) {
       )}
       disabled={animate !== "none"}
     >
-      <ChevronLeftIcon className="pointer-events-none size-4 fill-white sm:size-5" />
+      <ChevronLeftIcon className={cn("pointer-events-none fill-white", sizes.icon[size])} />
     </button>
   );
 }
