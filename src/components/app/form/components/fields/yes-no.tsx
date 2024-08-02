@@ -8,7 +8,7 @@ const options = [
 ];
 
 interface YesNoProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   name: string;
   label: string;
 }

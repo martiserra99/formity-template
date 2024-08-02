@@ -3,7 +3,7 @@ import BaseButton from "@/components/app/ui/button";
 import { useAnimate } from "../../animate";
 
 interface ButtonProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   children: React.ReactNode;
 }
 

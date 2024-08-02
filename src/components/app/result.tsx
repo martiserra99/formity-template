@@ -7,7 +7,7 @@ import { cn } from "@/utils";
 import Button from "./ui/button";
 
 interface ResultProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   result: Value;
   onRestart: () => void;
 }

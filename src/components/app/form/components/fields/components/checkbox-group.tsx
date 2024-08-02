@@ -7,7 +7,7 @@ import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
 interface CheckboxGroupProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   label: string;
   value: string[];
   onChange: (value: string[]) => void;

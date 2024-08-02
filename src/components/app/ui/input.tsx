@@ -4,13 +4,13 @@ import { cn } from "@/utils";
 
 const sizes = {
   input: {
-    normal: "text-sm sm:text-base",
-    small: "text-sm",
+    md: "text-sm sm:text-base",
+    sm: "text-sm",
   },
 };
 
 interface InputProps<T extends ElementType> {
-  size: "normal" | "small";
+  size: "md" | "sm";
   as: T;
   props?: any;
   children?: React.ReactNode;

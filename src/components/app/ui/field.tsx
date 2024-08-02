@@ -2,17 +2,17 @@ import { cn } from "@/utils";
 
 const sizes = {
   label: {
-    normal: "-top-[9px] text-xs before:top-[9px] sm:-top-[11px] sm:text-sm sm:before:top-[11px]",
-    small: "-top-[9px] text-xs before:top-[9px]",
+    md: "-top-[9px] text-xs before:top-[9px] sm:-top-[11px] sm:text-sm sm:before:top-[11px]",
+    sm: "-top-[9px] text-xs before:top-[9px]",
   },
   error: {
-    normal: "text-xs sm:text-sm",
-    small: "text-xs",
+    md: "text-xs sm:text-sm",
+    sm: "text-xs",
   },
 };
 
 interface FieldProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   children: React.ReactNode;
   id: string;
   label: string;

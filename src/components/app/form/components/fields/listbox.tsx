@@ -3,7 +3,7 @@ import { useFormContext, Controller } from "react-hook-form";
 import BaseListbox from "./components/listbox";
 
 interface ListboxProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   name: string;
   label: string;
   options: { value: string; label: string }[];

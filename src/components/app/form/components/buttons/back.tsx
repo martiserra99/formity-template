@@ -10,13 +10,13 @@ import { cn } from "@/utils";
 
 const sizes = {
   icon: {
-    normal: "size-4 sm:size-5",
-    small: "size-4",
+    md: "size-4 sm:size-5",
+    sm: "size-4",
   },
 };
 
 interface BackProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   onBack: OnBack;
 }
 

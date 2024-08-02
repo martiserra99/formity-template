@@ -3,7 +3,7 @@ import { useFormContext, Controller } from "react-hook-form";
 import BaseTextField from "./components/text-field";
 
 interface TextFieldProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   name: string;
   label: string;
 }

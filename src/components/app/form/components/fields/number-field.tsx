@@ -3,7 +3,7 @@ import { useFormContext, Controller } from "react-hook-form";
 import TextField from "./components/text-field";
 
 interface NumberFieldProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   name: string;
   label: string;
 }

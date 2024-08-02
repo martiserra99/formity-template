@@ -2,13 +2,13 @@ import { cn } from "@/utils";
 
 const sizes = {
   button: {
-    normal: "text-sm sm:text-base",
-    small: "text-sm",
+    md: "text-sm sm:text-base",
+    sm: "text-sm",
   },
 };
 
 interface ButtonProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   children: React.ReactNode;
   className?: string;
   disabled?: boolean;

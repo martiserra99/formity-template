@@ -26,7 +26,7 @@ export default function App() {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
       >
-        <Result size="normal" result={result} onRestart={() => setResult(null)} />
+        <Result size="md" result={result} onRestart={() => setResult(null)} />
       </motion.div>
     );
   } else {

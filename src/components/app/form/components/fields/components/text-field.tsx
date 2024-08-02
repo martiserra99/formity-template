@@ -6,7 +6,7 @@ import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
 interface TextFieldProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   type: string;
   label: string;
   value: string;

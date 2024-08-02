@@ -3,7 +3,7 @@ import { useFormContext, Controller } from "react-hook-form";
 import CheckboxGroup from "./components/checkbox-group";
 
 interface MultiSelectProps {
-  size: "normal" | "small";
+  size: "md" | "sm";
   name: string;
   label: string;
   options: { value: string; label: string }[];
