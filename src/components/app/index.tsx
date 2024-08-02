@@ -24,7 +24,7 @@ export default function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
+        transition={{ duration: 0.5 }}
       >
         <Result size="md" result={result} onRestart={() => setResult(null)} />
       </motion.div>
@@ -36,7 +36,7 @@ export default function App() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
+        transition={{ duration: 0.5 }}
       >
         <Form onReturn={handleReturn} />
       </motion.div>
