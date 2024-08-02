@@ -124,13 +124,11 @@ const schema: Schema = [
               { value: "javascript", label: "JavaScript" },
               { value: "python", label: "Python" },
               { value: "go", label: "Go" },
-              { value: "rust", label: "Rust" },
             ],
             questions: {
-              javascript: "What score would you give to the JavaScript language?",
-              python: "What score would you give to the Python language?",
-              go: "What score would you give to the Go language?",
-              rust: "What score would you give to the Rust language?",
+              javascript: "What rating would you give to the JavaScript language?",
+              python: "What rating would you give to the Python language?",
+              go: "What rating would you give to the Go language?",
             },
           },
         },
@@ -181,7 +179,7 @@ const schema: Schema = [
         {
           variables: {
             i: 0,
-            languagesScores: [],
+            languagesRatings: [],
           },
         },
         {
@@ -203,7 +201,7 @@ const schema: Schema = [
               {
                 form: {
                   defaultValues: {
-                    score: ["3", ["$language"]],
+                    rating: ["3", ["$language"]],
                   },
                   resolver: {},
                   render: {
@@ -223,14 +221,12 @@ const schema: Schema = [
                               fields: [
                                 {
                                   select: {
-                                    name: "score",
-                                    label: "Score",
+                                    name: "rating",
+                                    label: "Rating",
                                     options: [
-                                      { value: "5", label: "5" },
-                                      { value: "4", label: "4" },
-                                      { value: "3", label: "3" },
-                                      { value: "2", label: "2" },
-                                      { value: "1", label: "1" },
+                                      { value: "love-it", label: "Love it" },
+                                      { value: "like-it-a-lot", label: "Like it a lot" },
+                                      { value: "it-is-okay", label: "It's okay" },
                                     ],
                                     direction: "y",
                                   },
@@ -253,8 +249,8 @@ const schema: Schema = [
               {
                 variables: {
                   i: { $add: ["$i", 1] },
-                  languagesScores: {
-                    $concatArrays: ["$languagesScores", [{ name: "$language", score: "$score" }]],
+                  languagesRatings: {
+                    $concatArrays: ["$languagesRatings", [{ name: "$language", rating: "$rating" }]],
                   },
                 },
               },
@@ -266,7 +262,7 @@ const schema: Schema = [
             fullName: { $concat: ["$name", " ", "$surname"] },
             age: "$age",
             softwareDeveloper: "$softwareDeveloper",
-            languages: "$languagesScores",
+            languages: "$languagesRatings",
           },
         },
       ],

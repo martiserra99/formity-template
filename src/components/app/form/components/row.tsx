@@ -1,5 +1,3 @@
-import { cn } from "@/utils";
-
 interface RowProps {
   items: React.ReactNode[];
 }

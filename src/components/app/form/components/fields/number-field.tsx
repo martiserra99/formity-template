@@ -3,12 +3,11 @@ import { useFormContext, Controller } from "react-hook-form";
 import TextField from "./components/text-field";
 
 interface NumberFieldProps {
-  size: "md" | "sm";
   name: string;
   label: string;
 }
 
-export default function NumberField({ size, name, label }: NumberFieldProps) {
+export default function NumberField({ name, label }: NumberFieldProps) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name] as { message: string } | undefined;
   return (
@@ -17,7 +16,6 @@ export default function NumberField({ size, name, label }: NumberFieldProps) {
       name={name}
       render={({ field }) => (
         <TextField
-          size={size}
           type="number"
           label={label}
           value={field.value === "" ? "" : String(field.value)}

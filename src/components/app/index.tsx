@@ -27,7 +27,7 @@ export default function App() {
         transition={{ duration: 0.5 }}
         className="h-full"
       >
-        <Result size="md" result={result} onRestart={() => setResult(null)} />
+        <Result result={result} onRestart={() => setResult(null)} />
       </motion.div>
     );
   } else {
