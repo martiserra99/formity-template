@@ -11,7 +11,7 @@ export default function Frame({ children, className }: FrameProps) {
       <div className="flex h-12 items-center border-b border-b-neutral-800 px-6">
         <TrafficLightsIcon className="h-3 w-auto fill-neutral-800" />
       </div>
-      <div className="aspect-video h-full w-full">{children}</div>
+      <div className="aspect-video h-full min-h-[420px] w-full">{children}</div>
     </div>
   );
 }

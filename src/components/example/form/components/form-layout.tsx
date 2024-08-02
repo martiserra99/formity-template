@@ -9,7 +9,7 @@ interface FormLayoutProps {
 export default function FormLayout({ heading, description, fields, button, back }: FormLayoutProps) {
   return (
     <div className="relative flex h-full w-full items-center justify-center p-6 sm:p-8">
-      <div className="w-full max-w-md scale-75">
+      <div className="w-full max-w-md scale-75 lg:scale-90">
         <h1 className="mb-2 text-center text-2xl font-medium text-white sm:mb-3 sm:text-3xl">{heading}</h1>
         <p className="mb-6 text-center text-sm text-neutral-500 sm:text-base">{description}</p>
         <div className="scrollbar-hide mb-4 max-h-96 overflow-auto">
@@ -17,7 +17,7 @@ export default function FormLayout({ heading, description, fields, button, back 
         </div>
         {button}
       </div>
-      {back && <div className="absolute left-4 top-5 origin-top-left scale-75">{back}</div>}
+      {back && <div className="absolute left-4 top-5 origin-top-left scale-75 lg:scale-90">{back}</div>}
     </div>
   );
 }
