@@ -101,7 +101,6 @@ const components: Components<Parameters> = {
   back: ({ onBack }) => <Back size="md" onBack={onBack} />,
   row: ({ items }, render) => (
     <Row
-      size="md"
       items={items.map((item, index) => (
         <Fragment key={index}>{render(item)}</Fragment>
       ))}

@@ -8,10 +8,6 @@ import Field from "@/components/app/ui/field";
 import Input from "@/components/app/ui/input";
 
 const sizes = {
-  container: {
-    md: (direction: "x" | "y") => cn("flex-col", { "sm:flex-row": direction === "x" }),
-    sm: () => cn("flex-col"),
-  },
   icon: {
     md: cn("size-4 sm:size-5"),
     sm: cn("size-4"),
@@ -35,7 +31,9 @@ export default function RadioGroup({ size, label, value, onChange, options, dire
       <HeadlessRadioGroup
         value={value}
         onChange={onChange}
-        className={cn("peer flex gap-4", sizes.container[size](direction))}
+        className={cn("peer grid grid-cols-1 gap-4", {
+          "grid-cols-[repeat(auto-fit,minmax(theme(spacing.40),1fr))]": direction === "x",
+        })}
       >
         {options.map((option) => (
           <Input

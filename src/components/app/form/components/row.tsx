@@ -1,17 +1,9 @@
 import { cn } from "@/utils";
 
-const sizes = {
-  row: {
-    md: cn("flex-col sm:flex-row"),
-    sm: cn("flex-col"),
-  },
-};
-
 interface RowProps {
-  size: "md" | "sm";
   items: React.ReactNode[];
 }
 
-export default function Row({ size, items }: RowProps) {
-  return <div className={cn("flex gap-4", sizes.row[size])}>{items}</div>;
+export default function Row({ items }: RowProps) {
+  return <div className="grid grid-cols-[repeat(auto-fit,minmax(theme(spacing.40),1fr))] gap-4">{items}</div>;
 }
