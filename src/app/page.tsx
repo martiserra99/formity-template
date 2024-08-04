@@ -1,22 +1,53 @@
-import Frame from "@/components/frame";
-import AppFrame from "@/components/apps/frame";
+"use client";
 
-import Container from "@/components/container";
-import AppFeature from "@/components/apps/feature";
+import type { Value } from "expry";
+
+import { ReactElement, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import Form from "@/form";
+import Data from "@/data";
 
 export default function Home() {
+  const [result, setResult] = useState<Value | null>(null);
+
+  function handleReturn(result: Value) {
+    setResult(result);
+  }
+
+  let component: ReactElement;
+
+  if (result) {
+    component = (
+      <motion.div
+        key="result"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="h-full"
+      >
+        <Data data={result} onStart={() => setResult(null)} />
+      </motion.div>
+    );
+  } else {
+    component = (
+      <motion.div
+        key="form"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="h-full"
+      >
+        <Form onReturn={handleReturn} />
+      </motion.div>
+    );
+  }
+
   return (
-    <>
-      <div className="mx-auto my-16 max-w-6xl px-8">
-        <Frame>
-          <AppFrame />
-        </Frame>
-      </div>
-      <div className="mx-auto max-w-6xl px-8 py-16">
-        <Container>
-          <AppFeature />
-        </Container>
-      </div>
-    </>
+    <AnimatePresence mode="wait" initial={false}>
+      {component}
+    </AnimatePresence>
   );
 }

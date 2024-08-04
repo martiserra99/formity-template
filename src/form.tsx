@@ -8,5 +8,7 @@ interface FormProps {
 }
 
 export default function Form({ onReturn }: FormProps) {
-  return <Formity components={components} schema={schema} onReturn={onReturn} />;
+  return (
+    <Formity components={components} schema={schema} onReturn={onReturn} />
+  );
 }

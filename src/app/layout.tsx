@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Spline_Sans_Mono, Chakra_Petch } from "next/font/google";
+import { Plus_Jakarta_Sans, Spline_Sans_Mono } from "next/font/google";
 
 import { cn } from "@/utils";
 
@@ -21,14 +21,6 @@ const splineSansMono = Spline_Sans_Mono({
   variable: "--font-spline-sans-mono",
 });
 
-const chakraPetch = Chakra_Petch({
-  weight: ["400"],
-  style: "normal",
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-chakra-petch",
-});
-
 export const metadata: Metadata = {
   title: "Formity",
   description: "Build The Most Powerful Forms, Without The Hassle",
@@ -42,9 +34,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", plusJakartaSans.variable, splineSansMono.variable, chakraPetch.variable)}
+      className={cn(
+        "antialiased",
+        plusJakartaSans.variable,
+        splineSansMono.variable,
+      )}
     >
-      <body className="min-h-screen bg-black">{children}</body>
+      <body className="h-screen min-h-[800px] min-w-[800px] bg-black">
+        {children}
+      </body>
     </html>
   );
 }

@@ -9,9 +9,19 @@ interface CodeProps {
 
 export default function Code({ code }: CodeProps) {
   return (
-    <Highlight code={JSON.stringify(code, null, 2)} language="jsx" theme={{ plain: {}, styles: [] }}>
+    <Highlight
+      code={JSON.stringify(code, null, 2)}
+      language="jsx"
+      theme={{ plain: {}, styles: [] }}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={cn(className, "flex overflow-x-auto font-mono text-base leading-[170%]")} style={style}>
+        <pre
+          className={cn(
+            className,
+            "flex overflow-x-auto font-mono text-base leading-[170%]",
+          )}
+          style={style}
+        >
           <code className="px-4">
             {tokens.map((line, lineIndex) => (
               <div key={lineIndex} {...getLineProps({ line })}>
