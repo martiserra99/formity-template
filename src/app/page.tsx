@@ -20,7 +20,7 @@ export default function Home() {
   if (result) {
     component = (
       <motion.div
-        key="result"
+        key="data"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
