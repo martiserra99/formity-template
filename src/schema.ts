@@ -15,7 +15,10 @@ const schema: Schema = [
         ],
         surname: [
           [{ "#$ne": ["#$surname", ""] }, "Required"],
-          [{ "#$lt": [{ "#$strLen": "#$surname" }, 20] }, "No more than 20 chars"],
+          [
+            { "#$lt": [{ "#$strLen": "#$surname" }, 20] },
+            "No more than 20 chars",
+          ],
         ],
         age: [
           [{ "#$ne": ["#$age", ""] }, "Required"],
@@ -35,7 +38,8 @@ const schema: Schema = [
               children: {
                 formLayout: {
                   heading: "Tell us about yourself",
-                  description: "We would want to know a little bit more about you",
+                  description:
+                    "We would want to know a little bit more about you",
                   fields: [
                     {
                       row: {
@@ -91,7 +95,8 @@ const schema: Schema = [
               children: {
                 formLayout: {
                   heading: "Are you a software developer?",
-                  description: "We would like to know if you are a software developer",
+                  description:
+                    "We would like to know if you are a software developer",
                   fields: [
                     {
                       yesNo: {
@@ -126,7 +131,8 @@ const schema: Schema = [
               { value: "go", label: "Go" },
             ],
             questions: {
-              javascript: "What rating would you give to the JavaScript language?",
+              javascript:
+                "What rating would you give to the JavaScript language?",
               python: "What rating would you give to the Python language?",
               go: "What rating would you give to the Go language?",
             },
@@ -149,7 +155,8 @@ const schema: Schema = [
                     onNext: "$onNext",
                     children: {
                       formLayout: {
-                        heading: "What are your favourite programming languages?",
+                        heading:
+                          "What are your favourite programming languages?",
                         description:
                           "We would like to know which of the following programming languages you like the most",
                         fields: [
@@ -201,12 +208,15 @@ const schema: Schema = [
               {
                 form: {
                   defaultValues: {
-                    rating: ["3", ["$language"]],
+                    rating: ["love-it", ["$language"]],
                   },
                   resolver: {},
                   render: {
                     screen: {
-                      progress: { total: { $add: [3, { $size: "$languages" }] }, current: { $add: [4, "$i"] } },
+                      progress: {
+                        total: { $add: [3, { $size: "$languages" }] },
+                        current: { $add: [4, "$i"] },
+                      },
                       children: {
                         form: {
                           step: "$step",
@@ -224,9 +234,18 @@ const schema: Schema = [
                                     name: "rating",
                                     label: "Rating",
                                     options: [
-                                      { value: "love-it", label: "Love it" },
-                                      { value: "like-it-a-lot", label: "Like it a lot" },
-                                      { value: "it-is-okay", label: "It's okay" },
+                                      {
+                                        value: "love-it",
+                                        label: "Love it",
+                                      },
+                                      {
+                                        value: "like-it-a-lot",
+                                        label: "Like it a lot",
+                                      },
+                                      {
+                                        value: "it-is-okay",
+                                        label: "It's okay",
+                                      },
                                     ],
                                     direction: "y",
                                   },
@@ -250,7 +269,10 @@ const schema: Schema = [
                 variables: {
                   i: { $add: ["$i", 1] },
                   languagesRatings: {
-                    $concatArrays: ["$languagesRatings", [{ name: "$language", rating: "$rating" }]],
+                    $concatArrays: [
+                      "$languagesRatings",
+                      [{ name: "$language", rating: "$rating" }],
+                    ],
                   },
                 },
               },
@@ -284,16 +306,24 @@ const schema: Schema = [
                     onNext: "$onNext",
                     children: {
                       formLayout: {
-                        heading: "Would you be interested in learning how to code?",
-                        description: "Learning how to code can be a really useful skill",
+                        heading:
+                          "Would you be interested in learning how to code?",
+                        description:
+                          "Learning how to code can be a really useful skill",
                         fields: [
                           {
                             listbox: {
                               name: "interested",
                               label: "Interested",
                               options: [
-                                { value: "maybe", label: "Maybe in another time." },
-                                { value: "yes", label: "Yes, that sounds good." },
+                                {
+                                  value: "maybe",
+                                  label: "Maybe in another time.",
+                                },
+                                {
+                                  value: "yes",
+                                  label: "Yes, that sounds good.",
+                                },
                                 { value: "no", label: "No, it is not for me." },
                               ],
                             },
