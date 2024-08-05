@@ -11,14 +11,11 @@ const schema: Schema = [
       resolver: {
         name: [
           [{ "#$ne": ["#$name", ""] }, "Required"],
-          [{ "#$lt": [{ "#$strLen": "#$name" }, 20] }, "No more than 20 chars"],
+          [{ "#$lt": [{ "#$strLen": "#$name" }, 20] }, "Max 20 chars"],
         ],
         surname: [
           [{ "#$ne": ["#$surname", ""] }, "Required"],
-          [
-            { "#$lt": [{ "#$strLen": "#$surname" }, 20] },
-            "No more than 20 chars",
-          ],
+          [{ "#$lt": [{ "#$strLen": "#$surname" }, 20] }, "Max 20 chars"],
         ],
         age: [
           [{ "#$ne": ["#$age", ""] }, "Required"],
@@ -309,7 +306,7 @@ const schema: Schema = [
                         heading:
                           "Would you be interested in learning how to code?",
                         description:
-                          "Learning how to code can be a really useful skill",
+                          "Having coding skills can be very beneficial",
                         fields: [
                           {
                             listbox: {
