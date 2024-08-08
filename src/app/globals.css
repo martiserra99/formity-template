@@ -61,6 +61,10 @@
   .token.combinator {
     color: theme("colors.neutral.400");
   }
+
+  .language-json .token.property {
+    color: theme("colors.white");
+  }
 }
 
 @layer utilities {

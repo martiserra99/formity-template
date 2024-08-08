@@ -1,5 +1,9 @@
 import { Value } from "expry";
-import { Highlight } from "prism-react-renderer";
+import { Prism, Highlight } from "prism-react-renderer";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
+require("prismjs/components/prism-json");
 
 import { cn } from "@/utils";
 
@@ -11,7 +15,7 @@ export default function Code({ code }: CodeProps) {
   return (
     <Highlight
       code={JSON.stringify(code, null, 2)}
-      language="jsx"
+      language="json"
       theme={{ plain: {}, styles: [] }}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
