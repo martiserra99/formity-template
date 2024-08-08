@@ -1,4 +1,6 @@
-import { Formity, OnReturn } from "formity";
+import type { OnReturn } from "formity";
+
+import { Formity } from "formity";
 
 import components from "./components";
 import schema from "./schema";

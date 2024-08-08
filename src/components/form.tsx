@@ -1,15 +1,14 @@
-import {
-  forwardRef,
-  ReactElement,
-  useState,
-  useCallback,
-  useMemo,
-} from "react";
-import { AnimatePresence, motion, MotionProps } from "framer-motion";
-import { FormProvider, useForm } from "react-hook-form";
-import { Step, DefaultValues, Resolver, OnNext, Variables } from "formity";
+import type { ReactElement } from "react";
+import type { MotionProps } from "framer-motion";
+import type { Step, DefaultValues, Resolver, OnNext, Variables } from "formity";
 
-import { Animate, AnimateContext, useAnimate } from "../context/animate";
+import { forwardRef, useState, useCallback, useMemo } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { FormProvider, useForm } from "react-hook-form";
+
+import type { Animate } from "../context/animate";
+
+import { AnimateContext, useAnimate } from "../context/animate";
 
 interface FormProps {
   step: Step;

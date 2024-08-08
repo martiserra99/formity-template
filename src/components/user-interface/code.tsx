@@ -1,4 +1,5 @@
-import { Value } from "expry";
+import type { Value } from "expry";
+
 import { Prism, Highlight } from "prism-react-renderer";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;

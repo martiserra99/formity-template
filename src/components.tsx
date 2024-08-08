@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import {
+import type {
   Components,
   Step,
   DefaultValues,
@@ -7,7 +6,9 @@ import {
   OnNext,
   OnBack,
 } from "formity";
-import { Value } from "expry";
+import type { Value } from "expry";
+
+import { Fragment } from "react";
 
 import Screen from "@/components/screen";
 import Form from "@/components/form";

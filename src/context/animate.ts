@@ -1,4 +1,6 @@
-import { createContext, Dispatch, SetStateAction, useContext } from "react";
+import type { Dispatch, SetStateAction } from "react";
+
+import { createContext, useContext } from "react";
 
 export type Animate = "none" | "next" | "back";
 
@@ -12,7 +14,9 @@ export const AnimateContext = createContext<AnimateValue | null>(null);
 export function useAnimate(): AnimateValue {
   const context = useContext(AnimateContext);
   if (!context) {
-    throw new Error("useAnimate must be used within an AnimateContext.Provider");
+    throw new Error(
+      "useAnimate must be used within an AnimateContext.Provider",
+    );
   }
   return context;
 }

@@ -1,4 +1,4 @@
-import { ElementType } from "react";
+import type { ElementType } from "react";
 
 import { cn } from "@/utils";
 
@@ -9,7 +9,12 @@ interface InputProps<T extends ElementType> {
   className?: React.ReactNode;
 }
 
-export default function Input<T extends ElementType>({ as: Component, props, children, className }: InputProps<T>) {
+export default function Input<T extends ElementType>({
+  as: Component,
+  props,
+  children,
+  className,
+}: InputProps<T>) {
   return (
     <Component
       className={cn(

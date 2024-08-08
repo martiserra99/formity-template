@@ -1,9 +1,11 @@
+import type { ReactNode } from "react";
+
 interface FormLayoutProps {
   heading: string;
   description: string;
-  fields: React.ReactNode[];
-  button: React.ReactNode;
-  back?: React.ReactNode;
+  fields: ReactNode[];
+  button: ReactNode;
+  back?: ReactNode;
 }
 
 export default function FormLayout({

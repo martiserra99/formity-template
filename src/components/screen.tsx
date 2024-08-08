@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
+
 import { motion } from "framer-motion";
 
 interface ScreenProps {
   progress: { total: number; current: number };
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function Screen({ progress, children }: ScreenProps) {

@@ -1,4 +1,6 @@
-import { ChangeEvent, useId } from "react";
+import type { ChangeEvent } from "react";
+
+import { useId } from "react";
 
 import { cn } from "@/utils";
 
@@ -13,7 +15,13 @@ interface TextFieldProps {
   error: { message: string } | undefined;
 }
 
-export default function TextField({ type, label, value, onChange, error }: TextFieldProps) {
+export default function TextField({
+  type,
+  label,
+  value,
+  onChange,
+  error,
+}: TextFieldProps) {
   const id = useId();
   return (
     <Field
