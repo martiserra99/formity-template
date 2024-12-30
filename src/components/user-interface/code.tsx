@@ -1,10 +1,6 @@
 import type { Value } from "expry";
 
-import { Prism, Highlight } from "prism-react-renderer";
-
-(typeof global !== "undefined" ? global : window).Prism = Prism;
-
-require("prismjs/components/prism-json");
+import { Highlight } from "prism-react-renderer";
 
 import { cn } from "@/utils";
 

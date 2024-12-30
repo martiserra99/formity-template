@@ -39,8 +39,12 @@ export default function Form({
           defaultValues={defaultValues}
           resolver={resolver}
           onNext={onNext}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            transition: { delay: 0.25, duration: 0.25 },
+          }}
           {...motionProps(animate)}
         >
           {children}
@@ -50,19 +54,25 @@ export default function Form({
   );
 }
 
-function motionProps(animate: Animate): MotionProps {
+function motionProps(animate: "none" | "next" | "back"): MotionProps {
   if (animate === "next") {
     return {
       initial: { x: 100, opacity: 0 },
-      exit: { x: 0, opacity: 0, transition: { delay: 0 } },
-      transition: { delay: 0.25 },
+      exit: {
+        x: -100,
+        opacity: 0,
+        transition: { delay: 0, duration: 0.25 },
+      },
     };
   }
   if (animate === "back") {
     return {
-      initial: { x: 0, opacity: 0 },
-      exit: { x: 100, opacity: 0, transition: { delay: 0 } },
-      transition: { delay: 0.25 },
+      initial: { x: -100, opacity: 0 },
+      exit: {
+        x: 100,
+        opacity: 0,
+        transition: { delay: 0, duration: 0.25 },
+      },
     };
   }
   return {};
