@@ -30,7 +30,7 @@ This template is licensed under the [MIT License](https://opensource.org/license
 
 To learn more about the technologies used in this template, see the following resources:
 
-- [Formity](https://formity.app/docs) - the official Formity documentation
+- [Formity](https://formity.app/previous-version/docs) - the official Formity documentation
 - [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
 - [Next.js](https://nextjs.org/docs) - the official Next.js documentation
 - [Headless UI](https://headlessui.dev) - the official Headless UI documentation
